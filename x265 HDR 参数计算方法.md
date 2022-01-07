@@ -42,8 +42,7 @@ Maximum Frame-Average Light : 464 cd/m2
 These settings will be selected based on Mastering display luminance (--master-display) and Maximum Content Light Level & Maximum Frame-Average Light Level (--max-cll) for each movie separately.
 Those are shown doing a mediainfo on the extracted video, or simply checking a remux mediainfo.
 As an example I took the Venom 2018 movie where mediainfo shows:
-<pre><code>
-Mastering display luminance : min: <b>0.0050</b> cd/m2, max: <b>4000</b> cd/m2
+<pre><code>Mastering display luminance : min: <b>0.0050</b> cd/m2, max: <b>4000</b> cd/m2
 Maximum Content Light Level : <b>3903</b> cd/m2
 Maximum Frame-Average Light Level : <b>1076</b> cd/m2
 </code></pre>
