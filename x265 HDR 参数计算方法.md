@@ -1,18 +1,15 @@
-x265 HDR 参数计算方法
+# x265 HDR 参数计算方法
+
+HDR 压制参数为 `--master-display "G(13250,34500)B(7500,3000)R(34000,16000)WP(15635,16450)L(10000000,1)" --max-cll=1000,400`
 
 首先，不同的色彩空间有不同的G B R WP 数据
-通常，不同的片会有不同的L 数据
-这个看Mediainfo里的Mastering display color pri
+
+通常，不同的片会有不同的L 数据 以及 max-cll
 
 
-```
-Display P3
---master-display "G(13250,34500)B(7500,3000)R(34000,16000)WP(15635,16450)L(10000000,1)"
-BT.2020
---master-display "G(8500,39850)B(6550,2300)R(35400,14600)WP(15635,16450)L(40000000,50)"
-```
+Mediainfo范例
 
-BT.2020范例 Olympus Has Fallen 2013
+BT.2020  Olympus Has Fallen 2013
 ```
 Color range : Limited
 Color primaries : BT.2020
@@ -38,10 +35,18 @@ Maximum Frame-Average Light : 464 cd/m2
 ```
 
 
---master-display & --max-cll values (Just those marked with red in .bat file example).
-These settings will be selected based on Mastering display luminance (--master-display) and Maximum Content Light Level & Maximum Frame-Average Light Level (--max-cll) for each movie separately.
-Those are shown doing a mediainfo on the extracted video, or simply checking a remux mediainfo.
-As an example I took the Venom 2018 movie where mediainfo shows:
+G B R WP 数据看Mediainfo里的Mastering display color pri
+
+
+```
+Display P3
+--master-display "G(13250,34500)B(7500,3000)R(34000,16000)WP(15635,16450)"
+BT.2020
+--master-display "G(8500,39850)B(6550,2300)R(35400,14600)WP(15635,16450)"
+```
+
+
+Venom 2018 movie mediainfo :
 <pre><code>Mastering display luminance : min: <b>0.0050</b> cd/m2, max: <b>4000</b> cd/m2
 Maximum Content Light Level : <b>3903</b> cd/m2
 Maximum Frame-Average Light Level : <b>1076</b> cd/m2
