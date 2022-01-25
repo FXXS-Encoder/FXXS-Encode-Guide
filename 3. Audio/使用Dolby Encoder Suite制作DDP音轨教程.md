@@ -1,23 +1,26 @@
 # 使用Dolby Encoder Suite制作DDP音轨教程
 
+需注意，AMD Ryzen 5X00X 系列无法使用虚拟机 软件会崩溃
+
+部分音轨制作后无人声，请制作完后注意检查
+
 ##  制作前准备
 
-- MacOS 10.15及以下
+系统要求: MacOS 10.15以下
 
-  无物理MacOS环境请使用VMware+[VM Unlocker](https://github.com/DrDonk/unlocker)搭建虚拟机环境
+无物理MacOS环境请使用VMware+[VM Unlocker](https://github.com/DrDonk/unlocker)搭建虚拟机环境
 
-  - VMware16Player [下载](https://www.vmware.com/go/downloadplayer) (非商业用途无需激活但无快照功能)
-  - VMware15Workstation 15.5.0 [下载](https://download3.vmware.com/software/wkst/file/VMware-workstation-full-15.5.0-14665864.exe) (请自备激活码)
+ - VMware 15 Player (16版本也可使用，其他版本未测) [下载](https://www.vmware.com/go/downloadplayer) (非商业用途无需激活但无快照功能)
+ - VMware 15 Workstation 15.5.0 [下载](https://download3.vmware.com/software/wkst/file/VMware-workstation-full-15.5.0-14665864.exe) (请自备激活码)
 
-- Dolby Media Producer Suite
+ Dolby Media Producer Suite
 
-- [eac3to](http://madshi.net/eac3to.zip)
 
 ### 环境依赖
 
 VMware与MacOS的安装不再赘述，[推荐阅读](https://zhuanlan.zhihu.com/p/337036027)，主要介绍虚拟机解锁MacOS流程，以Windows为例：
 
-![vm-unlocker](/Picture/DDP-pics/ddp-0vm.png)
+![vm-unlocker](/Picture/DDP-pics/ddp-0vm.png) (AMD一些版本不需要这个可以直接使用，Linux脚本存在一些问题，不过直接将Win下的那些文件放在指定地方也可以)
 
 将压缩包解压至任意位置并进入windows文件夹，**按住Shift并右键空白位置**，选择**Windows Powershell/Windows终端中打开**。
 
