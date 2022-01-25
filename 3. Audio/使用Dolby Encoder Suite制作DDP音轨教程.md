@@ -20,7 +20,9 @@
 
 VMware与MacOS的安装不再赘述，[推荐阅读](https://zhuanlan.zhihu.com/p/337036027)，主要介绍虚拟机解锁MacOS流程，以Windows为例：
 
-![vm-unlocker](/Picture/DDP-pics/ddp-0vm.png) (AMD一些版本不需要这个可以直接使用，Linux脚本存在一些问题，不过直接将Win下的那些文件放在指定地方也可以)
+![vm-unlocker](/Picture/DDP-pics/ddp-0vm.png) 
+
+(一些AMD CPU 电脑的VMWare 不需要这个可以直接使用，Linux脚本存在一些问题，不过直接将Win脚本获取的那些文件放在指定地方也可以)
 
 将压缩包解压至任意位置并进入windows文件夹，**按住Shift并右键空白位置**，选择**Windows Powershell/Windows终端中打开**。
 
