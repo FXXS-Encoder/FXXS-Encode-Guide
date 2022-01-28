@@ -14,15 +14,13 @@
 
 ![压制流程](/Picture/EnocdeFlow-pics/encodeflow.png)
 
-[TOC]
-
 
 
 ## Let's Do This!
 
 本文主要讲解```Windows10/11 x64```下压制环境的配置与使用，其他环境的用户可以选择性阅读。
 
-```Linux```环境在此推荐[HLW组御用Docker](https://github.com/gzycode39/docker-vapoursynth-yuuno/)；```MacOS```环境配置起来极其困难，M1 Series不适用于配置压制环境，建议放弃。
+```Linux```环境在此推荐[HLW组御用Docker](https://github.com/gzycode39/docker-vapoursynth-yuuno/)；```MacOS```环境中Intel架构的环境配置推荐[这篇文章]([https://forum.doom9.org/showthread.php?p=1907899)，Arm架构(M1 Series)因架构因素环境及插件均无法配置。
 
 ### 环境配置
 
@@ -39,19 +37,19 @@
   或者可以选择不安装，使用压制部署包内附带的Python，并手动将以下两个路径添加至[环境变量](https://jingyan.baidu.com/article/47a29f24610740c0142399ea.html)。
 
   ```
-  MediaTool\x264_launcher\extra\VapourSynth-64\
-  MediaTool\x264_launcher\extra\VapourSynth-64\Scripts\
+  <MediaTool的解压路径>\MediaTool\x264_launcher\extra\VapourSynth-64\
+  <MediaTool的解压路径>\MediaTool\x264_launcher\extra\VapourSynth-64\Scripts\
   ```
 
 - [Mediainfo](https://mediaarea.net/download/binary/mediainfo-gui/21.03/MediaInfo_GUI_21.03_Windows.exe)/[PotPlayer](https://potplayer.daum.net/)/[k-lite](http://codecguide.com/download_kl.htm)
 
   用于生成媒体文件的信息。
 
-- (可选) DDP(EAC3)制作用虚拟机包 (站内搜索 *DDP(EAC3)制作用虚拟机* )
+- (可选) DDP(EAC3)制作工具 (站内搜索 *DDP(EAC3)制作用虚拟机* )
 
   用于将DTS/TrueHD等无损音频进行转换的工具。
 
-  仅可以在MacOS High Sierra/Mojave/Catalina下运行，搭建环境教程请另寻。
+  仅可以在MacOS High Sierra/Mojave/Catalina下运行，可以借助虚拟机安装环境。
 
 - (可选)[BDinfo](https://www.videohelp.com/software/BDInfo)
 
@@ -61,9 +59,9 @@
 
   用于原盘的观看和查看菜单信息，比较推荐DVDFab Player 5，大部分DIY原盘都可以用其打开。
 
-- ~~(可选)~~[DGremux](http://rationalqm.us/dgdemux/dgdemux.html)
+- ~~(可选)~~[DGremux](http://rationalqm.us/dgdemux/dgdemux.html) (已在压制部署包20211204版内置 )
 
-  用于原盘的内容提取，类似于eac3to但对[音频时间戳友好](https://t.me/c/1467204597/39592)，避免可能出现的音画不同步问题。（已在压制部署包20211204版内置。）
+  用于原盘的内容提取，类似于eac3to但对[音频时间戳友好](https://t.me/c/1467204597/39592)，避免可能出现的音画不同步问题。
   
 - (可选)[SubtitleEdit](https://github.com/SubtitleEdit/subtitleedit/releases)/[Aegisub](http://aegi.vmoe.info/)
 
@@ -79,7 +77,7 @@
 
 以上工具解压(路径请勿带中文)/安装、配置后，建议使用脚本生成快捷方式方便寻找各软件。双击运行CreatLnk.bat，所有工具的快捷方式将会在__Lnk_中生成。
 
-开始之前，需要对**[VapourSynth](http://www.vapoursynth.com/)**的插件进行升级，打开_Lnk下的***VSRepoGUI***，按步骤更新插件并检查。
+开始之前，需要对**[VapourSynth](http://www.vapoursynth.com/)**的插件进行升级，打开_Lnk下的 ***VSRepoGUI***，按步骤更新插件并检查。
 
 如果在使用其他软件时提示更新，请更新！
 
@@ -93,7 +91,7 @@
 
 > 要想做一个较为高质量作品，应采用最好的来源进行压制。HDR电影来源较为单一，4k的原盘和Remux资源为主，版本较少能选择不多。SDR目前可用压制版本较多，各个发行商的在不同时期也发行过不同蓝光版本，随着web的兴起，AZ和NF也都发布了较高码率的4k的sdr版本，所以在SDR压制时，需要对于来源进行对比，选取最为高质量的来源进行压制。对于蓝光原盘与remux两者相同时候，推荐使用Remux的更为方便。
 
-总的说来，建议选择SDR的电影1080p**原盘**或**Remux**，新上手不推荐压制电视剧和演唱会或4K分辨率电影或DV/HDR视频源，电视剧大多为WEB-DL，不便确定其源质量；演唱会可能会遇到去交错、音源选择以及字幕问题，略有复杂不便上手；HDR需要另行计算亮度值，增加劝退可能性。
+总的说来，建议选择SDR的电影1080p**原盘**或**Remux**，新上手不推荐压制电视剧和演唱会或4K分辨率电影或DoVi/HDR视频源，电视剧大多为WEB-DL，不便确定其源质量；演唱会可能会遇到去交错、音源选择以及字幕问题，略有复杂不便上手；HDR需要另行计算亮度值，增加劝退可能性。
 
 **选定资源前请务必确认是否有禁转、禁止二次压制等提示语！**
 
@@ -139,7 +137,7 @@
 
 **代码小课堂**
 
-**注释就是对代码的解释和说明。**目的是为了让别人和自己很容易看懂，一看就知道这段代码是做什么用的。
+**注释就是对代码的解释和说明。** 目的是为了让别人和自己很容易看懂，一看就知道这段代码是做什么用的。
 
 ```python
 # 在Python中,#是一个注释符号
@@ -193,14 +191,14 @@ src= core.std.Crop(src, left=0, right=0, top=20, bottom=20) #数值必须为偶�
 #src = core.edgefixer.Continuity(src, left=4, right=4, top=0, bottom=0)
 #src = haf.FixRowBrightnessProtect2(src, 1, +34)
 
-#转为10bit再输出，x265一般压制为10bit,x264为8bit
-src = fvf.Depth(src, 10)
-
-#去交错(正常不需要使用，多用于1080i及DVD)
+#反交错(正常不需要使用，多用于1080i及DVD)
 #src  = haf.QTGMC(src, Preset="slow", TFF=True)
 
-#去锯齿
+#抗锯齿
 #src = taa.TAAmbk(src, aatype=-3, preaa=-1, strength=0, mtype=2, opencl=True)
+
+#转为10bit再输出，x265一般压制为10bit,x264为8bit
+src = fvf.Depth(src, 10)
 
 ##压制抽取 并与源对比
 select = core.std.SelectEvery(src[8000:-8000],cycle=6000, offsets=range(80))
@@ -246,7 +244,7 @@ Source选择刚才保存的```encode.vpy```，Output会自动输出```hevc```至
 
 这里引用进阶教程的测试流程，这里涉及到更多参数的调整，视自身情况操作。
 
->通常情况下，你会想先测试一下码率。只要在几个不同的CRF下编码，并与源画面进行比较，找到与源码视觉上无差别的最高CRF值。现在，将该值四舍五入，最好是向下，然后切换到2-pass。对于标准测试，测 试 `qcomp` （步进为0.05）、 `aq-modes` 、 `aq-strength` （步进为0.05） `merange `（32、48或64）、`psy-rd`（步进为0.05）、 `ipratio` / `pbratio` （步进为0.05，并保持两者间0.10的差值），然后 `deblock` （步进为1）。如果你认为 mbtree 有帮助（即你在对动画进行编码），在打开 mbtree 的情况下重新进 行这个过程。你可能不会想太多地改变顺序，但当然也可以这样做。 
+>通常情况下，你会想先测试一下码率。只要在几个不同的CRF下编码，并与源画面进行比较，找到与源码视觉上无差别的最高CRF值。现在，将该值四舍五入，最好是向下，然后切换到2-pass。对于标准测试，测 试 `qcomp` （步进为0.05）、 `aq-modes` 、 `aq-strength` （步进为0.05） `merange`（32、48或64）、`psy-rd`（步进为0.05）、 `ipratio` / `pbratio` （步进为0.05，并保持两者间0.10的差值），然后 `deblock` （步进为1）。如果你认为 mbtree 有帮助（即你在对动画进行编码），在打开 mbtree 的情况下重新进 行这个过程。你可能不会想太多地改变顺序，但当然也可以这样做。 
 >
 >对于x265，测试调整顺序应该是 qcomp 、 aq-mode 、 aq-strength 、 psy-rd 、 psy-rdoq 、 ipratio 和 pbratio ，最后 deblock 。
 >
@@ -348,7 +346,7 @@ PPS：很多人初次使用脚本时可能遇到```the 'clip' dimensions doesn't
 
 - 影片产地母语
 
-  - **(推荐)**输出为DD+(EAC3)，有损格式，适用于音轨为5.1/7.1声道的TrueHD / DTS / DTS-MA
+  - **(推荐)** 输出为DD+(EAC3)，有损格式，适用于音轨为5.1/7.1声道的TrueHD / DTS / DTS-MA
 
     制作流程请参考[使用Dolby Encoder Suite制作DDP音轨教程](/Audio/%E4%BD%BF%E7%94%A8Dolby%20Encoder%20Suite%E5%88%B6%E4%BD%9CDDP%E9%9F%B3%E8%BD%A8%E6%95%99%E7%A8%8B.md) 参数设置请参考[韩小王大佬提供的截图](/Picture/DDP-pics/ddp-5refer.png)
 
@@ -358,7 +356,7 @@ PPS：很多人初次使用脚本时可能遇到```the 'clip' dimensions doesn't
 
 - 影片非产地语言
 
-  - (可选)输出为DD+(EAC3)，适用于音轨为非产地语言但为原盘版本的音轨或国配音轨
+  - (可选) 输出为DD+(EAC3)，适用于音轨为非产地语言但为原盘版本的音轨或国配音轨
 
   - 输出为AC3，适用于音轨为非产地语言但为原盘版本的音轨或国配音轨
 
@@ -372,7 +370,7 @@ PPS：很多人初次使用脚本时可能遇到```the 'clip' dimensions doesn't
 
   ***情况复杂以下仅供参考***
 
-  - **(推荐)**输出为DDP5.1/FLAC 5.1/TrueHD 5.1，尽可能地在音质与体积下权衡
+  - **(推荐)** 输出为DDP5.1/FLAC 5.1/TrueHD 5.1，尽可能地在音质与体积下权衡
 
   - FLAC/aac 5.1，适用于音轨为PCM2.0
 
@@ -383,7 +381,7 @@ PPS：很多人初次使用脚本时可能遇到```the 'clip' dimensions doesn't
 
 [SubHD](http://subhd.tv)   [字幕库](https://zmk.pw)   [伪射手](https://assrt.net/)
 
-找到字幕后请在播放器中载入字幕以核对其是否符合源。
+找到字幕后请在播放器中载入字幕以核对其是否匹配源，如不匹配请进行调轴等工作。
 
 #### 混流
 
@@ -419,11 +417,11 @@ PPS：很多人初次使用脚本时可能遇到```the 'clip' dimensions doesn't
 
 - 检查
 
-  确保视频、音轨、字幕和章节四者都有并保证顺序为 **视频-音轨-字幕-章节**，以及需要时各自名称/Flag有相应标注。
+  确保视频、音轨、字幕和章节四者都有并保证顺序为 **视频 -> 音轨 -> 字幕 -> 章节**，以及需要时各自名称/Flag有相应标注。
 
-  音轨推荐以 **原产地音轨-非原产地音轨-解说/评论音轨** 顺序排列
+  音轨推荐以 **原产地音轨 - 非原产地音轨 - 解说/评论音轨** 顺序排列
 
-  字幕推荐以 **简体-繁体-英语-其他语言** 顺序排列。
+  字幕推荐以 **简体 - 繁体 - 英语 - 其他语言** 顺序排列。
 
 - 命名规范
 
@@ -441,7 +439,7 @@ PPS：很多人初次使用脚本时可能遇到```the 'clip' dimensions doesn't
   
   - 进阶命名范例如下，适用于更加复杂的情况。```()```为可选，视情况添加。
   
-    `Adore.AKA.Perfect.Mothers.2017.GBR.Extended.Cut.1080p.BluRay.HDR.x265.10bit.DDP.5.1.MUHD-FRDS`
+    `Adore.AKA.Perfect.Mothers.2017.GBR.Extended.Cut.1080p.BluRay.HDR.x265.10bit.DDP5.1.MUHD-FRDS`
   
     即为 ```(别名/欧洲/罗马音).(AKA).<影片名>.<年份>.(原盘版本).(版本信息).<来源>.<分辨率>.(视频效果).<编码格式>.<位深>.<音轨格式>.<压制组>```
   
@@ -482,13 +480,13 @@ PPS：很多人初次使用脚本时可能遇到```the 'clip' dimensions doesn't
 
    上传图片需要使用到图床，可以使用自己曾经使用过的图床或选择下方图床
 
-   [imgbox](https://imgbox.com/) （推荐使用代理上传）   **(推荐)**[up.ccp.ovh](http://up.ccp.ovh)
+    (建议使用代理访问)[imgbox](https://imgbox.com/)   **(推荐)**[up.ccp.ovh](http://up.ccp.ovh)
 
-   上传完成后，保存返回的直链，即 ```https://abc.dfe.com/hgklmn.png```
+   上传完成后，保存返回的直链，即 `https://abc.dfe.com/hgklmn.png`
 
 3. #### 压制记录
 
-   回复 论坛**-->**压制问题反馈及建议**-->**【FXXS压制组】新人作品作品交流与检查，记录压制相关内容，格式如下：
+   回复 论坛 --> 压制问题反馈及建议 --> 【FXXS压制组】新人作品作品交流与检查，记录压制相关内容，格式如下：
 
    ```bbcode
    [quote]
