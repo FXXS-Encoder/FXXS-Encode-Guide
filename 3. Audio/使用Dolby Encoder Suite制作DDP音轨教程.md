@@ -1,8 +1,10 @@
-# 使用Dolby Encoder Suite制作DDP音轨教程
+# 使用Dolby Encoder Suite制作DDP/EAC3音轨教程
 
 需注意，AMD Ryzen 5X00X 系列无法使用虚拟机 软件会崩溃
 
 部分音轨制作后无人声，请制作完后注意检查
+
+有些情况下mkvtoolnix会报告包含无效数据，这种时候需要重新制作
 
 ##  制作前准备
 
