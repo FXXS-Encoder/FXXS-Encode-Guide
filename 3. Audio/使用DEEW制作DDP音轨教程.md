@@ -10,9 +10,9 @@
 
 - [Python](https://www.python.org/downloads/windows/)
 
-  下载 *Installer* 版，推荐使用**Install Now**，注意勾选 ***Add Python 3.x PATH***
+  下载 *Installer* 版，推荐使用**Install Now**，注意勾选 ***Add Python 3.x to PATH***
 
-  ![PythonPATH](https://camo.githubusercontent.com/300953e0e128187dc9bb48ab3418435bbf21b4093a8dc77a02e555a013b35bdf/68747470733a2f2f73747564796f70656469612e636f6d2f77702d636f6e74656e742f75706c6f6164732f323032302f31302f342e2d507974686f6e2d332e392d696e7374616c6c6174696f6e2d737461727465642e706e67)
+  ![PythonPATH](https://www.techruzz.com/images/How_to_Download_and_Install_Python_3_on_windows_10.png)
   打开命令行，分别输入 `python -V` 及 `pip --version`，若有返回则说明安装成功。
 
   ```shell
@@ -31,7 +31,7 @@
 
 #### 工具下载
 
-- [Dolby Encoding Engine 5.1.0 (+license)](https://mega.nz/file/dFIkyR6I#l4uxUdvgQM0lc1E24tppx9jDeEbDAhA-DwqGf0q2NTc)（mega网盘推荐使用代理下载）
+- Dolby Encoding Engine 5.1.0 (+license)
 
   解压 *dewi.rar*，得到如下内容：
 
@@ -43,7 +43,7 @@
 
 - [Dolby Encoding Engine Wrapper](https://github.com/pcroland/deew)
 
-  安装Github客户端的可以使用 `git clone` 下载项目，没有的可以点击右上角`Code` - `Download ZIP`来下载并解压，得到如下内容：
+  安装*Github Desktop*的可以使用 `git clone` 下载项目，没有的可以点击右上角`Code` - `Download ZIP`来下载并解压，得到如下内容：
 
   ![deew install](/Picture/DDP-pics/deew-0install2.png)
 
@@ -116,7 +116,7 @@ python deew.py -v
   -d DIALNORM, --dialnorm 响度补偿
                         默认值: 0  (由软件自动依照计算值设置)
   -t THREADS, --threads 线程数 【似乎只有在多文件同时处理时有明显占用
-                         默认使用所有线程数-1
+                        默认使用所有线程数-1
   -k, --keeptemp        保留临时文件
   -p, --progress        使用进度条替代命令行显示
   --printlogos          show all logo variants you can set in the config
@@ -156,7 +156,7 @@ python deew.py -v
   python deew.py -i '4588 PID 1100 48000 6ch eng DELAY 0ms.thd' -c 8 -p
   ```
 
-![DEEW encoding](/Picture/DDP-pics/deew-3deew.png)
+![DEEW encoding](/Picture/DDP-pics/deew-3deew.webp)
 
 完成后将在 *deew-main* 下找到与输入名称相同的`.ec3`文件，制作完成。
 
@@ -173,6 +173,8 @@ python deew.py -v
 ## 特别感谢
 
 [pcroland](https://github.com/pcroland)/**[deew](https://github.com/pcroland/deew)**
+
+HLW大佬搬运的deei
 
 [响度的计算](https://0bin.net/paste/7fhDvcxF#dcWxrUkGRoUmSCg6EMkJBIpNNNz-+uvYzYwcb1UZMDe)（其附有更多命令范例）
 
