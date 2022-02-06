@@ -1,4 +1,4 @@
-# 使用Dolby Encoder Suite制作DDP/EAC3音轨教程
+# 使用Dolby Media Encoder制作DDP/EAC3音轨教程
 
 需注意，AMD Ryzen 5X00X 系列无法使用虚拟机 软件会崩溃
 
@@ -8,21 +8,21 @@
 
 ##  制作前准备
 
-系统要求: MacOS 10.15以下
+- MacOS 10.15以下
 
-无物理MacOS环境请使用VMware+[VM Unlocker](https://github.com/DrDonk/unlocker)搭建虚拟机环境
+  无物理MacOS环境请使用VMware+[VM Unlocker](https://github.com/DrDonk/unlocker)搭建虚拟机环境
 
- - VMware 15 Player (16版本也可使用，其他版本未测) [下载](https://www.vmware.com/go/downloadplayer) (非商业用途无需激活但无快照功能)
- - VMware 15 Workstation 15.5.0 [下载](https://download3.vmware.com/software/wkst/file/VMware-workstation-full-15.5.0-14665864.exe) (请自备激活码)
+  - VMware 15 Player (16版本也可使用，其他版本未测) [下载](https://www.vmware.com/go/downloadplayer) (非商业用途无需激活但无快照功能)
+  - VMware 15 Workstation 15.5.0 [下载](https://download3.vmware.com/software/wkst/file/VMware-workstation-full-15.5.0-14665864.exe) (请自备激活码)
 
- Dolby Media Producer Suite
+- Dolby Media Producer Suite
 
 
 ### 环境依赖
 
 VMware与MacOS的安装不再赘述，[推荐阅读](https://zhuanlan.zhihu.com/p/337036027)，主要介绍虚拟机解锁MacOS流程，以Windows为例：
 
-![vm-unlocker](/Picture/DDP-pics/ddp-0vm.png) 
+![vm-unlocker](/Picture/des-pics/des-0vm.png) 
 
 (一些AMD CPU 电脑的VMWare 不需要这个可以直接使用，Linux脚本存在一些问题，不过直接将Win脚本获取的那些文件放在指定地方也可以)
 
@@ -30,11 +30,11 @@ VMware与MacOS的安装不再赘述，[推荐阅读](https://zhuanlan.zhihu.com/
 
 在Powershell终端中输入 ```/Picture/DDP-pics/unlocker.exe install```
 
-![poweshell](/Picture/DDP-pics/ddp-0shell.png)
+![poweshell](/Picture/DDP-pics/des-0shell.png)
 
 稍等片刻，会有UAC提示（如果开启的话），点击**是**，随后跳出CMD命令行
 
-![done](/Picture/DDP-pics/ddp-0done.png)
+![done](/Picture/DDP-pics/des-0done.png)
 
 出现**Press any key to continue...** 即为成功，可以关闭窗口，解锁MacOS完成，可以打开VMware安装MacOS。
 
@@ -42,19 +42,19 @@ VMware与MacOS的安装不再赘述，[推荐阅读](https://zhuanlan.zhihu.com/
 
 #### 使用eac3to提取音轨
 
-导入原盘文件，找到原盘中需要提取多声道的音轨序号，例如图中为序号3的DTS-MA 5.1声道的音轨
+导入原盘文件，找到原盘中需要提取多声道的音轨序号，例如图中为序号3的DTS-MA 5.1声道的音轨，**输出为wavs**，**Add**并**Run CL**，等待输出。
 
-![eac3to read](/Picture/DDP-pics/ddp-1eac3to.png)
+![eac3to read](/Picture/DDP-pics/des-1eac3to.png)
 
-**输出为wavs**，**Add**并**Run CL**，等待输出，之后会得到六个wav文件，如图。假若提取的是7.1声道音轨，获得到八个wav文件，相比5.1声道音轨多出BL、BR两个文件。由于Dolby Media Producer Suite音轨命名与eac3to分轨命名略有差异，为方便软件自动匹配，需要更改文件名以适用于DDP，具体为**“SL=Ls、SR=Rs、BL=Lrs、BR=Rrs”**。
+输出完毕后会得到六个`.wav`文件，如图。假若提取的是7.1声道音轨，获得到八个`.wav`文件，相比5.1声道音轨多出BL、BR两个文件。由于Dolby Media Producer Suite音轨命名与eac3to分轨命名略有差异，为方便软件自动匹配，需要更改文件名以适用于DDP，具体为 **“SL=Ls、SR=Rs、BL=Lrs、BR=Rrs”**。
 
-![eac3to output](/Picture/DDP-pics/ddp-1eac3.png)
+![eac3to output](/Picture/DDP-pics/des-1eac3.png)
 
 #### Dolby Media Encoder SE使用
 
 1. 新建Job
 
-   ![New Job](/Picture/DDP-pics/ddp-2job.png)
+   ![New Job](/Picture/DDP-pics/des-2job.png)
 
 2. 导入音频
 
@@ -66,11 +66,11 @@ VMware与MacOS的安装不再赘述，[推荐阅读](https://zhuanlan.zhihu.com/
 
    之后任选一个音轨进行导入对应文件，如果在提取音轨后没有改名，则需要手动选择缺失的音轨其对应文件，最终填满所有音轨。
 
-   ![Format & Target](/Picture/DDP-pics/ddp-2format.png)
+   ![Format & Target](/Picture/DDP-pics/des-2format.png)
 
    此页设置完成时如图。
 
-   ![Channel Config](/Picture/DDP-pics/ddp-2wavs.png)
+   ![Channel Config](/Picture/DDP-pics/des-2wavs.png)
 
 3. 参数设置
 
@@ -78,9 +78,9 @@ VMware与MacOS的安装不再赘述，[推荐阅读](https://zhuanlan.zhihu.com/
 
    Data Rate根据声道而变，**5.1**音轨时选择**1024 kbps**，**7.1**音轨时选择**1536 kbps**。
 
-   ![Encode Settings](/Picture/DDP-pics/ddp-3settings.png)
+   ![Encode Settings](/Picture/DDP-pics/des-3settings.png)
 
-   ![Encode Settings](/Picture/DDP-pics/ddp-3processing.png)
+   ![Encode Settings](/Picture/DDP-pics/des-3processing.png)
 
    参数设置完毕，点击右上角的**Encode**开始压制。
 
@@ -88,7 +88,7 @@ VMware与MacOS的安装不再赘述，[推荐阅读](https://zhuanlan.zhihu.com/
 
    由于我们没有新建Project，故此处不再新建，点击**No**。稍等片刻，左侧的窗口中Status将会发生变化。
 
-   ![Encode Settings](/Picture/DDP-pics/ddp-4encode1.png)
+   ![Encode Settings](/Picture/DDP-pics/des-4encode1.png)
    
    由于该软件为单线程应用，其压制过程会非常缓慢，耐心等待。
    
@@ -96,9 +96,9 @@ VMware与MacOS的安装不再赘述，[推荐阅读](https://zhuanlan.zhihu.com/
 
 ## 特别感谢
 
-- [韩小王大佬提供的参数设置](https://t.me/c/1467204597/42995) | [备份](/Picture/DDP-pics/ddp-5refer.png)
+- [韩小王大佬提供的参数设置](https://t.me/c/1467204597/42995) | [备份](/Picture/DDP-pics/des-5refer.png)
 - [MJ大佬的纠错及7.1声道制作](https://t.me/c/1467204597/63052)
 
 ## Credit
 
-转载请指明出处！
+教程遵守[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.zh)，使用到的项目各自遵守其规范，转载请指明出处！
