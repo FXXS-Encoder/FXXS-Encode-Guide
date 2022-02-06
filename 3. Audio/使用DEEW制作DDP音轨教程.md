@@ -23,7 +23,7 @@
   pip 21.2.4 from C:\Program Files\Python\lib\site-packages\pip (python 3.9)
   ```
 
-- FFmpeg：[从 gyan.dev 下载](https://www.gyan.dev/ffmpeg/builds/) | [从 Github 下载](https://github.com/BtbN/FFmpeg-Builds/releases)
+- [FFmpeg](https://ffmpeg.org/about.html)：[从 gyan.dev 下载](https://www.gyan.dev/ffmpeg/builds/) | [从 Github 下载](https://github.com/BtbN/FFmpeg-Builds/releases)
 
   若**从 gyan.dev 下载**，请选择 *[ffmpeg-git-essentials.7z](https://www.gyan.dev/ffmpeg/builds/ffmpeg-git-essentials.7z)* 版本；**从 Github 下载**则选择 *ffmpeg-master-latest-win64-lgpl* 版本即可，足够制作使用。
   
@@ -68,7 +68,7 @@
 
 ## 开始工作
 
-#### 使用eac3to提取音轨
+### 使用eac3to提取音轨
 
 点击**Input File**导入原盘文件，找到原盘中需要提取多声道的音轨序号，例如图中为序号3的TrueHD 5.1声道的音轨，**输出为thd**，**Add**并**Run CL**，等待输出。
 
@@ -76,7 +76,7 @@
 
 由于每个盘其音轨制作方式不同，格式也有所不同，请选择输出时不要转换格式，即输出源格式。例如源为DTS，那么输出时也选择该格式。
 
-#### (可选)使用DGDemux提取音轨
+### (可选)使用DGDemux提取音轨
 
 点击**Browse**导入原盘文件，找到原盘中需要提取多声道的音轨序号，例如图中为序号3的TrueHD 5.1声道的音轨，勾选后点击**Demux**。
 
@@ -84,7 +84,7 @@
 
 若原盘音轨格式为THD，请勾选右侧 ***Do not split THD***，本流程无需其ac3兼容内核。
 
-#### Dolby Encoding Engine Wrapper使用
+### Dolby Encoding Engine Wrapper使用
 
 找到先前解压的*deew-main*，按住`Shift`键并右键空白区域，选择 **在 Windows终端 中打开** / **在此处打开 Powershell 窗口**，输入
 
@@ -97,52 +97,48 @@ python deew.py -v
 **参数解析**
 
 >./deew.py
->usage: deew.py [-h] [-v] [-i [INPUT ...]] [-f FORMAT] [-b BITRATE]
->[-c CHANNELS] [-d DIALNORM] [-t THREADS] [-k] [-p] [--printlogos]
->
->可选参数:
->  -h, --help            显示帮助信息
->  -v, --version         显示版本信息
->  -i [INPUT ...], --input [INPUT ...]
->                        输入的文件/文件夹路径
->  -f FORMAT, --format 输出格式
->                        dd/ddp/thd (默认为 ddp)
->  -b BITRATE, --bitrate 输出比特率
->                        默认值:
->                        DD5.1: 640
->                        DDP5.1: 1024
->                        DDP7.1: 1536
->  -c CHANNELS, --channels 声道数
->                        默认值: 6
->  -d DIALNORM, --dialnorm 响度补偿【需要另外计算
->                        默认值: -31
->  -t THREADS, --threads 线程数 【似乎只有在多文件同时处理时有明显占用
->                        默认使用所有线程数-1
->  -k, --keeptemp        保留临时文件
->  -p, --progress        使用进度条替代命令行显示
->  --printlogos          show all logo variants you can set in the config
+>usage: deew.py [-h] [-v] [-i [INPUT ...]] [-f FORMAT] [-b BITRATE] [-c CHANNELS] [-d DIALNORM] [-t THREADS] [-k] [-p] [--printlogos]
+```ruby
+可选参数:
+  -h, --help            显示帮助信息
+  -v, --version         显示版本信息
+  -i [INPUT ...], --input [INPUT ...]
+                        输入的文件/文件夹路径
+  -f FORMAT, --format 输出格式
+                        dd/ddp/thd (默认为 ddp)
+  -b BITRATE, --bitrate 输出比特率
+                        默认值:
+                        DD5.1: 640
+                        DDP5.1: 1024
+                        DDP7.1: 1536
+  -c CHANNELS, --channels 声道数
+                        默认值: 6
+  -d DIALNORM, --dialnorm 响度补偿
+                        默认值: 0  (由软件自动依照计算值设置)
+  -t THREADS, --threads 线程数 【似乎只有在多文件同时处理时有明显占用
+                         默认使用所有线程数-1
+  -k, --keeptemp        保留临时文件
+  -p, --progress        使用进度条替代命令行显示
+  --printlogos          show all logo variants you can set in the config
+```
 
-**响度补偿的计算**
+**响度补偿的计算** 已在此[commit](https://github.com/pcroland/deew/commit/9680c2b5e09db57b1bd160bfdb0bb9c9c2c361c2)后自动计算，不再需要。
 
-参考原文 https://0bin.net/paste/7fhDvcxF#dcWxrUkGRoUmSCg6EMkJBIpNNNz-+uvYzYwcb1UZMDe
+~~[参考原文](https://0bin.net/paste/7fhDvcxF#dcWxrUkGRoUmSCg6EMkJBIpNNNz-+uvYzYwcb1UZMDe)~~
 
-首先进行格式转换，找到 *ffmpeg* 的解压位置，在此打开终端，输入以下命令，生成音频过渡文件*intermediate.wav*。
+~~首先进行格式转换，找到 *ffmpeg* 的解压位置，在此打开终端，输入以下命令，生成音频过渡文件*intermediate.wav*。~~
 
 ```
 .\ffmpeg -i "00001.mpls_3eng.dts" -c:a pcm_s24le -rf64 always D:\DDP\Temp\intermediate.wav
 ```
 
-![loudness ffmpeg](/Picture/DDP-pics/deew-2loudness1.png)
-
-而后计算响度补偿，找到 *dolby_encoding_engine* 的安装位置，在此打开终端，输入以下命令。
+~~而后计算响度补偿，找到 *dolby_encoding_engine* 的安装位置，在此打开终端，输入以下命令。~~
 
 ```
 .\dee -x .\xml_templates\measure_loudness\wav_measure_loudness_wav_manifest.xml -a "D:\DDP\Temp\intermediate.wav" -o "D:\DDP\Temp\MyWav_measured.wav" -o "D:\DDP\Temp\MyWav_loudness.xml" --temp "D:\DDP\Temp"
 ```
 
-计算结束后回看过程，找到 **[Source loudness] dialogue_loudness=-xx.xx**，忽略小数只取整数位即为所求，本例即为28。在最终制作时，使用 `-d` 参数指定。
-
-![loudness ffmpeg](/Picture/DDP-pics/deew-2loudness2.png)
+~~计算结束后回看过程，找到 **[Source loudness] dialogue_loudness=-xx.xx**，忽略小数只取整数位即为所求，本例即为28。在最终制作时，使用 `-d` 参数指定。~~
 
 **举例**
 
@@ -154,10 +150,10 @@ python deew.py -v
   python deew.py -i 00001.mpls_3eng.dts -p
   ```
 
-- 以THD为输入源响度补偿28 制作DDP7.1@1536kbps
+- 以THD为输入源 制作DDP7.1@1536kbps
 
   ```shell
-  python deew.py -i '4588 PID 1100 48000 6ch eng DELAY 0ms.thd' -d 28 -c 8 -p
+  python deew.py -i '4588 PID 1100 48000 6ch eng DELAY 0ms.thd' -c 8 -p
   ```
 
 ![DEEW encoding](/Picture/DDP-pics/deew-3deew.png)
@@ -166,10 +162,10 @@ python deew.py -v
 
 补充DD2.0的例子，有需要的类推
 
-- 以w64为输入源制作DD2.0@448kbps
+- 以w64为输入源 制作DD2.0@448kbps
 
   ```shell
-  python deew.py -i 'abcdefghijk.w64' -c 2 -p
+  python deew.py -i 'abcdefghijk.w64' -c 2 -b 448 -p
   ```
 
 完成后将在*deew-main*下找到与输入名称相同的`.ac3`文件，制作完成。
