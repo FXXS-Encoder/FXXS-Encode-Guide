@@ -3,6 +3,11 @@
 ## Docker
 <https://github.com/gzycode39/docker-vapoursynth-yuuno/>
 
+## Info
+### BDInfoCLI-ng
+<https://github.com/zoffline/BDInfoCLI-ng>
+
+
 ## Demux/Remux
 ### tsMuxer
 <https://github.com/justdan96/tsMuxer>
