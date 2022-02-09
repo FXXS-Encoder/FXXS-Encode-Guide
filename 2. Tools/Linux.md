@@ -7,6 +7,7 @@
 ### BDInfoCLI-ng
 <https://github.com/zoffline/BDInfoCLI-ng>
 
+`docker run --rm -it -v <BD_PATH>:/mnt/bd -v <REPORT_DEST>:/mnt/report zoffline/bdinfocli-ng /mnt/bd /mnt/report` (iso需要挂载后再扫)
 
 ## Demux/Remux
 ### tsMuxer
