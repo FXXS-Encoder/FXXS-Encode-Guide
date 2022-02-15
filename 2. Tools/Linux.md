@@ -14,8 +14,10 @@
 <https://github.com/justdan96/tsMuxer>
 ### mkvtoolnix
 <https://mkvtoolnix.download/downloads.html>
-注意章节编辑器名称模板改成英文 Chapter <NUM:2>
+注意章节编辑器名称模板改成英文 `Chapter <NUM:2>`
 
+### DGDemux
+<http://rationalqm.us/dgdemux/dgdemux.html>
 
 ## Encode 
 ### FFmpeg
