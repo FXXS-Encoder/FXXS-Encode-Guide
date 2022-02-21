@@ -91,4 +91,7 @@ PROPER在注明源具体版本的情况下可以省略，但需在标题中注�
 * RERip、RERip2、RERip3 etc
 
 版本是继承的
+
 如 REPACK、PROPER2、RERip3
+
+对于PROPER省略的，重置计数器
