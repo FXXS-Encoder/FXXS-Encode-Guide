@@ -41,7 +41,7 @@
 ## 文件名
 文件名必须将所有空格转换为"."
 
-#Movie
+# Movie
 x265压制必须为10bit，但由于以前有一些8bit压制，目前要求写上，以后Trump完所有8bit压制后可以省略，HDR等现可以省略
 ## WEB
 Name Year Source Resolution Rip-type Video-codec Audio-Tag (因为WEB的源码与压制难以区分，故压制统一标注为WEBRip,另WEBRip还会被录制使用)
