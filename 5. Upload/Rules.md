@@ -82,7 +82,8 @@ The Romanoffs S01 2018 AMZN WEBRip 2160p x265 HDR DD+5.1-TrollUHD
 
 ## REPACK/PROPER/RERip
 写在MNHD/mUHD前面，未重新压制写REPACK，重压写RERip，更换更好的源为PROPER
-PROPER在注明源具体版本的情况下可以省略
+
+PROPER在注明源具体版本的情况下可以省略，但需在标题中注明
 
 * REPACK、REPACK2、REPACK3 etc
 * PROPER、PROPER2、PROPER3 etc
