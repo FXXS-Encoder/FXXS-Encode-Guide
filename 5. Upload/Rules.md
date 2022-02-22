@@ -63,6 +63,7 @@ Goodfellas 1990 BluRay 1080p x265 10bit DTS5.1-tag
 ## TV Show Season/Mini-Series:
 ### Episode(File Name)
 * 尽量避免数字连写，好看一些
+* 也要避免集标题后直接接BluRay
 * 尽量保证整个剧集，命名风格统一
 * 对于迷你剧，尽管只有一季，也建议标S01，集数S01E01
 
