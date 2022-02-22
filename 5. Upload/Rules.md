@@ -77,7 +77,7 @@ Name S##E## Source Resolution Video-encode Audio-Tag
 Agatha.Christies.Poirot.S02E01.BluRay.1080p.x265.10bit.DD2.0.MNHD-tag
 ### Season
 
-Name S## Source Resolution Year Video-encode Audio-Tag(由于剧集很多会跨年，故可以省略年份)
+Name S## Source Resolution Year Video-encode Audio-Tag(由于剧集很多会跨年，故建议省略年份)
 
 The Romanoffs S01 2018 AMZN WEBRip 2160p x265 HDR DD+5.1-TrollUHD
 
@@ -85,9 +85,9 @@ The Romanoffs S01 2018 AMZN WEBRip 2160p x265 HDR DD+5.1-TrollUHD
 可以尽量简写，`Video-encode`、`Audio`都可以不写
 
 ## REPACK/PROPER/RERip
-写在MNHD/mUHD前面，未重新压制写REPACK，重压写RERip，更换更好的源为PROPER
-
-PROPER在注明源具体版本的情况下可以省略，但需在标题中注明
+* 不做字幕的Repack，建议提供修正后的可更改的文本类型字幕到公网即可
+* 写在MNHD/mUHD前面，未重新压制写REPACK，重压写RERip，更换更好的源为PROPER
+* PROPER在注明源具体版本的情况下可以省略，但需在标题中注明
 
 * REPACK、REPACK2、REPACK3 etc
 * PROPER、PROPER2、PROPER3 etc
