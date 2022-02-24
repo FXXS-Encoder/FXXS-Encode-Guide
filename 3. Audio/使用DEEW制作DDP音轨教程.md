@@ -4,6 +4,8 @@
 
 本文主要讲解Windows下的搭建，Linux下流程类似，自行摸索。
 
+> 本文跟随上游更新至Ver 1.2@[34437f3](https://github.com/pcroland/deew/commit/34437f3d365d5564743543ff42e89f698447d258)，可能因其更新本教程内容会有所滞后，遇到区别时请以上游的[README](https://github.com/pcroland/deew#readme)为准。
+
 ## 制作前准备
 
 #### 环境准备
@@ -17,7 +19,7 @@
 
   ```shell
   C:\Users\FXXS>python -V
-  Python 3.9.9
+  Python 3.9.10
   
   C:\Users\FXXS>pip --version
   pip 21.2.4 from C:\Program Files\Python\lib\site-packages\pip (python 3.9)
@@ -39,11 +41,11 @@
 
   双击 *dolby_encoding_engine_install*，根据提示按下Enter同意两次，而后根据提示输入`accept`同意，根据自己喜好输入安装路径，安装完毕。
 
-  打开上图中 *Crack* 文件夹，将其中两个文件(*dee.exe* 及 *license.lic*)复制，找到刚才安装 *dolby_encoding_engine* 的位置并粘贴，提示是否覆盖点是即可。
+  打开上图中 *Crack* 文件夹，将其中两个文件(*dee.exe* 及 *license.lic*)复制，找到刚才安装 *dolby_encoding_engine* 的位置并粘贴，提示是否覆盖时点是即可。
 
 - [Dolby Encoding Engine Wrapper](https://github.com/pcroland/deew)
 
-  安装*Github Desktop*的可以使用 `git clone` 下载项目，没有的可以点击右上角`Code` - `Download ZIP`来下载并解压，得到如下内容：
+  已安装 *Github Desktop* 的可以使用 `git clone` 命令下载项目，没有的可以点击右上角`Code` - `Download ZIP`来下载并解压，得到如下内容：
 
   ![deew install](/Picture/DDP-pics/deew-0install2.png)
 
@@ -55,16 +57,21 @@
 
   安装完成后即可关闭窗口。
 
-  之后打开 *config.toml*，修改各依赖软件的位置。
+  之后打开 *config.toml.example*，修改各依赖软件的位置。
 
-  ```
+  ```toml
   ffmpeg_path = 'D:\DDP\ffmpeg\bin\ffmpeg.exe' # ffmpeg的解压位置
   dee_path = 'D:\DDP\dolby_encoding_engine\dee.exe' # dolby_encoding_engine的安装位置
-  temp_path = 'D:\DDP\Temp' # 临时路径（请确保路径存在） 
-  logo = 1 # which logo (1-8) to display at start (0 to disable) ./deew.py --printlogos
+  temp_path = 'D:\DDP\Temp' # 临时路径 可以留空不设置
+  # empty: next to the script
+  # relative path: from your current directory
+  # you can also use fullpath
+  # in any case will be created automatically if it doesn't exist already
+  wsl = false # set this to true if you run the script in Linux but use the Windows version of DEE
+  logo = 1 # set between 1 and 10, use the -pl/--printlogos option to see the available logos, set to 0 to disable logo
   ```
-
-  本文以 `D:\DDP\Temp` 作为临时路径，后续将会用到。请按需要自行选择路径并在后续教程中注意替换。
+  
+  修改完毕后请将文件名从 *config.toml.example* 改为 *config.toml*。
 
 ## 开始工作
 
@@ -84,6 +91,10 @@
 
 若原盘音轨格式为THD，请勾选右侧 ***Do not split THD***，本流程无需其ac3兼容内核。
 
+### (可选)直接将带有音频的视频输入
+
+适合于Remux文件，将`Remux.mkv`作为输入源，默认将第一个音轨进行转换。
+
 ### Dolby Encoding Engine Wrapper使用
 
 找到先前解压的*deew-main*，按住`Shift`键并右键空白区域，选择 **在 Windows终端 中打开** / **在此处打开 Powershell 窗口**，输入
@@ -97,78 +108,72 @@ python deew.py -v
 **参数解析**
 
 >./deew.py
->usage: deew.py [-h] [-v] [-i [INPUT ...]] [-f FORMAT] [-b BITRATE] [-c CHANNELS] [-d DIALNORM] [-t THREADS] [-k] [-p] [--printlogos]
+>usage: deew.py [-h] [-v] [-i [INPUT ...]] [-o OUTPUT] [-f FORMAT] [-b BITRATE] [-m MIX] [-drc DRC] [-t THREADS] [-k] [-pl]
 ```ruby
 可选参数:
   -h, --help            显示帮助信息
   -v, --version         显示版本信息
   -i [INPUT ...], --input [INPUT ...]
                         输入的文件/文件夹路径
-  -f FORMAT, --format 输出格式
+  -o OUTPUT, --output OUTPUT
+                        输入的文件路径
+                        默认为程序所在文件夹
+  -f FORMAT, --format   输出格式
                         dd/ddp/thd (默认为 ddp)
   -b BITRATE, --bitrate 输出比特率
                         默认值:
                         DD5.1: 640
                         DDP5.1: 1024
                         DDP7.1: 1536
-  -c CHANNELS, --channels 声道数
-                        默认值: 6
-  -d DIALNORM, --dialnorm 响度补偿
-                        默认值: 0  (由软件自动依照计算值设置)
-  -t THREADS, --threads 线程数 【似乎只有在多文件同时处理时有明显占用
+  -m MIX, --mix MIX 6/8 指定降低/升高声道, 仅对DDP有效
+                        DD格式无论是否7.1声道都将自动降至5.1声道
+  -drc DRC              动态范围控制
+                        film_light/film_standard/music_light/music_standard/speech drc profile
+                        默认值: film_light
+  -t THREADS, --threads 使用的线程数
+                        仅在多任务同时编码时有效，单任务编码无法提速
                         默认使用所有线程数-1
   -k, --keeptemp        保留临时文件
-  -p, --progress        使用进度条替代命令行显示
-  --printlogos          show all logo variants you can set in the config
+  -pl, --printlogos     show all logo variants you can set in the config
 ```
-
-**响度补偿的计算** 已在此[commit](https://github.com/pcroland/deew/commit/9680c2b5e09db57b1bd160bfdb0bb9c9c2c361c2)后自动计算，不再需要。
-
-~~[参考原文](https://0bin.net/paste/7fhDvcxF#dcWxrUkGRoUmSCg6EMkJBIpNNNz-+uvYzYwcb1UZMDe)~~
-
-~~首先进行格式转换，找到 *ffmpeg* 的解压位置，在此打开终端，输入以下命令，生成音频过渡文件*intermediate.wav*。~~
-
-```
-.\ffmpeg -i "00001.mpls_3eng.dts" -c:a pcm_s24le -rf64 always D:\DDP\Temp\intermediate.wav
-```
-
-~~而后计算响度补偿，找到 *dolby_encoding_engine* 的安装位置，在此打开终端，输入以下命令。~~
-
-```
-.\dee -x .\xml_templates\measure_loudness\wav_measure_loudness_wav_manifest.xml -a "D:\DDP\Temp\intermediate.wav" -o "D:\DDP\Temp\MyWav_measured.wav" -o "D:\DDP\Temp\MyWav_loudness.xml" --temp "D:\DDP\Temp"
-```
-
-~~计算结束后回看过程，找到 **[Source loudness] dialogue_loudness=-xx.xx**，忽略小数只取整数位即为所求，本例即为28。在最终制作时，使用 `-d` 参数指定。~~
 
 **举例**
 
 以我们需要制作的DDP5.1及DDP7.1举例
 
-- 以DTS为输入源 制作DDP5.1@1024kbps
+- 以THD5.1为输入源 制作DDP5.1@1024kbps
 
   ```shell
-  python deew.py -i 00001.mpls_3eng.dts -p
+  python deew.py -i '4588 PID 1100 48000 6ch eng DELAY 0ms.thd'
   ```
 
-- 以THD为输入源 制作DDP7.1@1536kbps
+- 以DTS7.1为输入源 制作DDP7.1@1536kbps
 
   ```shell
-  python deew.py -i '4588 PID 1100 48000 6ch eng DELAY 0ms.thd' -c 8 -p
+  python deew.py -i 00001.mpls_3eng.dts
   ```
 
-![DEEW encoding](/Picture/DDP-pics/deew-3deew.webp)
+![DEEW encoding](/Picture/DDP-pics/deew-3encoding.webp)
 
 完成后将在 *deew-main* 下找到与输入名称相同的`.ec3`文件，制作完成。
 
-补充DD2.0的例子，有需要的类推
+补充范例拓展，有需要的类推
+
+- 以 `D:\DDP\demux` 内所有 `.flac` 音频为输入源 批量生成动态范围为 *film_standard* 的DDP 并输出至 `D:\DDP\done` 
+
+  ```shell
+  python deew.py -i 'D:\DDP\demux\*flac' -o 'D:\DDP\done' -drc film_standard
+  ```
+  
+  完成后将在 *D:\DDP\done*  下找到与输入名称相同的`.ec3`文件，制作完成。
 
 - 以w64为输入源 制作DD2.0@448kbps
 
   ```shell
-  python deew.py -i 'abcdefghijk.w64' -c 2 -b 448 -p
+  python deew.py -i 'abcdefghijk.w64' -f dd -b 448
   ```
 
-完成后将在*deew-main*下找到与输入名称相同的`.ac3`文件，制作完成。
+  完成后将在 *deew-main* 下找到与输入名称相同的`.ac3`文件，制作完成。
 
 ## 特别感谢
 
