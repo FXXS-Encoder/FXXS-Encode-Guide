@@ -59,7 +59,7 @@
 
   之后打开 *config.toml.example*，修改各依赖软件的位置。
 
-  ```
+  ```toml
   ffmpeg_path = 'D:\DDP\ffmpeg\bin\ffmpeg.exe' # ffmpeg的解压位置
   dee_path = 'D:\DDP\dolby_encoding_engine\dee.exe' # dolby_encoding_engine的安装位置
   temp_path = 'D:\DDP\Temp' # 临时路径 可以留空不设置
