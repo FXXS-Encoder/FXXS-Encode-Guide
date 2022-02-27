@@ -1,4 +1,4 @@
-# FXXS新手压制流程 V1.4
+# FXXS新手压制流程 V1.5
 
 ## 前言
 
@@ -6,7 +6,7 @@
 
 **必须阅读一遍[官方教程](https://github.com/ted423/FXXS-Encode-Guide/blob/main/%E5%8E%8B%E5%88%B6%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.md)了解原理，再阅读本流程，可能对整个压制流程能有一个大致的认识，帮助新人压出第一部作品。**
 
-本文因编者水平有限，仅作为新人上手指导，其中不乏有疏漏，还望各位大佬指正，若有本文中没有提到的情况或其他不解之处，请在咨询大佬，在此对大佬的无私指导和指正表示**感谢！**
+本文因编者水平有限，仅作为新人上手指导，其中不乏有疏漏，还望各位大佬指正，若有本文中没有提到的情况或其他不解之处，欢迎加群咨询大佬，在此对大佬的无私指导和指正**表示感谢！**
 
 
 
@@ -20,7 +20,7 @@
 
 本文主要讲解```Windows10/11 x64```下压制环境的配置与使用，其他环境的用户可以选择性阅读。
 
-```Linux```环境在此推荐[HLW组御用Docker](https://github.com/gzycode39/docker-vapoursynth-yuuno/)；```MacOS```环境中Intel架构的环境配置推荐[这篇文章]([https://forum.doom9.org/showthread.php?p=1907899)，Arm架构(M1 Series)因架构因素环境及插件均无法配置。
+```Linux```环境在此推荐[HLW组御用Docker](https://github.com/gzycode39/docker-vapoursynth-yuuno/)；```MacOS```环境中Intel架构的环境配置推荐[这篇文章](https://forum.doom9.org/showthread.php?p=1907899)，Arm架构(M1 Series)因架构因素依赖环境及插件均无法配置。
 
 ### 环境配置
 
@@ -28,28 +28,23 @@
 
   压制环境及工具打包，可以直接下载解压使用，省去了新人寻找压制工具的烦恼。有能力的可以手动部署相关工具。
 
-- [Python 3.9.x](https://www.python.org/ftp/python/3.9.9/python-3.9.9-amd64.exe)
+  相关工具：[Vapoursynth](https://github.com/vapoursynth/vapoursynth/releases)、[Simple-x264-Launcher](https://github.com/lordmulder/Simple-x264-Launcher)、[eac3to](https://www.videohelp.com/software/eac3to)、[mkvtoolnix](https://mkvtoolnix.download/)
 
-  Python环境，建议安装，注意勾选 ***Add Python 3.9 PATH*** 
+- [Python 3.9.x](https://www.python.org/ftp/python/3.9.10/python-3.9.10-amd64.exe) (使用 *压制部署包* 无需安装)
+
+  Python环境，手动部署的必须安装，使用压制部署包的可以不安装。
+
+  安装时注意勾选 ***Add Python 3.9 PATH*** 以及 ***安装pip***
 
   ![PythonPATH](https://studyopedia.com/wp-content/uploads/2020/10/4.-Python-3.9-installation-started.png)
 
-  或者可以选择不安装，使用压制部署包内附带的Python，并手动将以下两个路径添加至[环境变量](https://jingyan.baidu.com/article/47a29f24610740c0142399ea.html)。
-
-  ```
-  <MediaTool的解压路径>\MediaTool\x264_launcher\extra\VapourSynth-64\
-  <MediaTool的解压路径>\MediaTool\x264_launcher\extra\VapourSynth-64\Scripts\
-  ```
-
-- [Mediainfo](https://mediaarea.net/download/binary/mediainfo-gui/21.03/MediaInfo_GUI_21.03_Windows.exe)/[PotPlayer](https://potplayer.daum.net/)/[k-lite](http://codecguide.com/download_kl.htm)
+- (可选)[Mediainfo](https://mediaarea.net/download/binary/mediainfo-gui/21.03/MediaInfo_GUI_21.03_Windows.exe)/[PotPlayer](https://potplayer.daum.net/)/[k-lite](http://codecguide.com/download_kl.htm)
 
   用于生成媒体文件的信息。
 
-- (可选) DDP(EAC3)制作工具 (站内搜索 *DDP(EAC3)制作用虚拟机* )
+- (可选)DEE+[DEEW](https://github.com/pcroland/deew)
 
-  用于将DTS/TrueHD等无损音频进行转换的工具。
-
-  仅可以在MacOS High Sierra/Mojave/Catalina下运行，可以借助虚拟机安装环境。
+  用于将DTS/TrueHD等无损音频转换为DDP的工具。
 
 - (可选)[BDinfo](https://www.videohelp.com/software/BDInfo)
 
@@ -59,7 +54,7 @@
 
   用于原盘的观看和查看菜单信息，比较推荐DVDFab Player 5，大部分DIY原盘都可以用其打开。
 
-- ~~(可选)~~[DGremux](http://rationalqm.us/dgdemux/dgdemux.html) (已在压制部署包20211204版内置 )
+- ~~(可选)~~[DGremux](http://rationalqm.us/dgdemux/dgdemux.html) (已在压制部署包20211204版内置)
 
   用于原盘的内容提取，类似于eac3to但对[音频时间戳友好](https://t.me/c/1467204597/39592)，避免可能出现的音画不同步问题。
   
@@ -75,9 +70,11 @@
 
   用于在原盘中没有章节信息时手动生成。
 
-以上工具解压(路径请勿带中文)/安装、配置后，建议使用脚本生成快捷方式方便寻找各软件。双击运行CreatLnk.bat，所有工具的快捷方式将会在__Lnk_中生成。
+本文主要以压制部署包为使用基础，对应其进行压制工作，若自行部署的可主要关注操作部分。
 
-开始之前，需要对**[VapourSynth](http://www.vapoursynth.com/)**的插件进行升级，打开_Lnk下的 ***VSRepoGUI***，按步骤更新插件并检查。
+以上工具解压(路径请勿带中文)/安装、配置后，建议使用脚本生成快捷方式方便寻找各软件。双击运行`CreatLnk.bat`，所有工具的快捷方式将会在__Lnk_中生成。
+
+开始之前，需要对 VapourSynth 的插件进行升级，打开_Lnk下的 ***VSRepoGUI***，按步骤更新插件并检查。
 
 如果在使用其他软件时提示更新，请更新！
 
@@ -89,9 +86,11 @@
 
 这里引用基础教程的话语。
 
-> 要想做一个较为高质量作品，应采用最好的来源进行压制。HDR电影来源较为单一，4k的原盘和Remux资源为主，版本较少能选择不多。SDR目前可用压制版本较多，各个发行商的在不同时期也发行过不同蓝光版本，随着web的兴起，AZ和NF也都发布了较高码率的4k的sdr版本，所以在SDR压制时，需要对于来源进行对比，选取最为高质量的来源进行压制。对于蓝光原盘与remux两者相同时候，推荐使用Remux的更为方便。
+> 要想做一个较为高质量作品，应采用最好的来源进行压制。HDR电影来源较为单一，4k的原盘和Remux资源为主，版本较少能选择不多。SDR目前可用压制版本较多，各个发行商的在不同时期也发行过不同蓝光版本，随着web的兴起，AZ和NF也都发布了较高码率的4k的SDR版本，所以在SDR压制时，需要对于来源进行对比，选取最为高质量的来源进行压制。对于蓝光原盘与remux两者相同时候，推荐使用Remux的更为方便。
 
 总的说来，建议选择SDR的电影1080p**原盘**或**Remux**，新上手不推荐压制电视剧和演唱会或4K分辨率电影或DoVi/HDR视频源，电视剧大多为WEB-DL，不便确定其源质量；演唱会可能会遇到去交错、音源选择以及字幕问题，略有复杂不便上手；HDR需要另行计算亮度值，增加劝退可能性。
+
+对于Remux，下载时可优先Hybrid 或 Remaster版本。
 
 **选定资源前请务必确认是否有禁转、禁止二次压制等提示语！**
 
@@ -99,29 +98,31 @@
 
 ### 源预处理
 
+> **使用Remux做为源的可以忽略此步骤。**
+
 #### 原盘信息判断
 
 - 从种子页面判断原盘中主要部分
 
-对于原盘来说，发布时BDinfo是必须的（可以认为是原盘的mediainfo）。找到**PLAYLIST REPORT**下的**Name**，即为目标```MPLS```。
+  对于原盘来说，发布时BDInfo（可以认为是原盘的Mediainfo）是必须的。找到 **PLAYLIST REPORT**下的**Name**，即为目标```MPLS```。
 
-某些原盘因其版本原因，可能在BDinfo内展示多个MPLS，请按需选择。
+  某些原盘因其版本原因，可能在BDInfo内展示多个MPLS，请按需选择。
 
-![read BDInfo](/Picture/EnocdeFlow-pics/2_readInfo.png)
+  ![read BDInfo](/Picture/EnocdeFlow-pics/2_readInfo.png)
 
 - 使用***BDInfo***判断原盘中主要部分
 
-> 对于原盘使用BDInfo检查原盘信息，查看原盘主要视频对应播放列表。对于复杂原盘，可能出现多版本混合的情况，需要确定所需要版本对应的MPLS，并确定原盘的主要码率 。
+  > 对于原盘使用BDInfo检查原盘信息，查看原盘主要视频对应播放列表。对于复杂原盘，可能出现多版本混合的情况，需要确定所需要版本对应的MPLS，并确定原盘的主要码率 。
 
-![BDInfo](/Picture/EnocdeFlow-pics/2_BDInfo.png)
+  ![BDInfo](/Picture/EnocdeFlow-pics/2_BDInfo.png)
 
-**一般**时长最长且文件最大的```.mpls```为目标播放列表（若为多版本请按需选择），记下其名称，后续会用到。本文以```00001.mpls```举例。
+  **一般**时长最长且文件最大的```.mpls```为目标播放列表（若为多版本请按需选择)，记下其名称，后续会用到。本文以```00001.mpls```举例。
 
 #### 预混流
 
-> *使用**eac3to**/**DGremux**提取视频流的可以忽略此步骤。*
+> 使用**eac3to**/**DGremux**提取视频流的可以忽略此步骤。
 
-使用***MKVtoolnix***将原盘进行混流，打包为一个完整的影片(可以仅选择视频以节省体积)，方便作为VS的输入源。同时该操作有效防止肉酱盘中多m2ts文件致使压制输入源不便。
+使用 ***MKVtoolnix*** 将原盘进行混流，打包为一个完整的影片(可以仅选择视频以节省体积)，方便作为VS的输入源。同时该操作有效防止肉酱盘中多m2ts文件致使压制输入源不便。
 
 右键输入处空白-添加文件，选择之前确定的`00001.mpls`，随后的提示框选择"不扫描，仅添加文件"，命名输出，本文将`fxxsnb.mkv`举例，点击开始混流。
 
@@ -131,7 +132,7 @@
 
 ### 压制测试
 
-以下均以***VapourSynth Editor***为使用范例，若想使用***AviSynth***请回看[官方教程](https://github.com/ted423/FXXS-Encode-Guide/blob/main/%E5%8E%8B%E5%88%B6%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.md)。
+以下均以 ***VapourSynth Editor*** 为使用范例，若想使用 ***AviSynth*** 请回看[官方教程](/%E5%8E%8B%E5%88%B6%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.md)。
 
 插入一段零基础代码小课堂，有Python基础的同学可以跳过。
 
@@ -149,10 +150,12 @@
 
 ```python
 import vapoursynth as vs
-core = vs.get_core(thread=2)
+core = vs.get_core()
 ```
 
-这段代码的意思是，导入```vapoursynth``` 组件并将```vs```作为别名，并调用了`get_core`这个方法，还将`thread=2`这个参数传递至`get_core`，最后将结果赋值给```core```。
+这段代码的意思是，导入```vapoursynth``` 组件并将```vs```作为别名，并调用了`get_core`这个方法。
+
+有的函数还会在括号内填写内容，这称之为传递参数，将参数传递至函数，函数进行处理，反馈处理后的内容。
 
 #### 压制脚本调整
 
@@ -174,51 +177,54 @@ import nnedi3_rpow2 as nnrp
 #获取vs核心功能
 core = vs.get_core()
 #请依据自己实际内存调整(单位MB)
-core.max_cache_size = 27384
+core.max_cache_size = 10240
 
-##填写片源路径
+##片源载入
+#填写片源路径
 source = r"J:\fxxsnb.mkv"
 #加载片源，输入即为16bit色深
 src = core.lsmas.LWLibavSource(source,format="yuv420p16")
 #另一种加载片源方法，并调整为16bit色深
-#src = core.ffms2.Source(source).fvf.Depth(src, 16)
+#src = core.ffms2.Source(source)
+#src = fvf.Depth(src, 16)
 
+##处理工具
 #切边
 src= core.std.Crop(src, left=0, right=0, top=20, bottom=20) #数值必须为偶数
-
 #脏边处理相关
 #src = core.fb.FillBorders(src, 0, 1, 0, 0, mode="fillmargins")
 #src = core.edgefixer.Continuity(src, left=4, right=4, top=0, bottom=0)
 #src = haf.FixRowBrightnessProtect2(src, 1, +34)
 
-#反交错(正常不需要使用，多用于1080i及DVD)
+#反交错(正常不需要使用，多用于DVD及1080i等)
 #src  = haf.QTGMC(src, Preset="slow", TFF=True)
-
 #抗锯齿
 #src = taa.TAAmbk(src, aatype=-3, preaa=-1, strength=0, mtype=2, opencl=True)
 
-#转为10bit再输出，x265一般压制为10bit,x264为8bit
-src = fvf.Depth(src, 10)
-
-##压制抽取 并与源对比
-select = core.std.SelectEvery(src[8000:-8000],cycle=6000, offsets=range(80))
-src = core.std.AssumeFPS(select, fpsnum=src.fps.numerator, fpsden=src.fps.denominator)
-#以上是抽取压制 正式压制时请删除或注释
-
-src.set_output()
+##Output Mode
+#设置为1时脚本将抽取片段进行处理，并用于压制与源的对比
+#设置为其他数值时(建议为0)，将正常处理全片
+Output = 1
+#以下为Output Mode的实现，请不要更改
+if Output == 1:
+	select = core.std.SelectEvery(src[8000:-8000],cycle=6000,offsets=range(60))
+	select = core.std.AssumeFPS(select, fpsnum=src.fps.numerator, fpsden=src16.fps.denominator)
+	select = mvf.Depth(select, 10).set_output()
+else:
+	final = fvf.Depth(src, 10).set_output()
 ```
 
 新手上路，建议只修改**内存调整**、**加载片源**、**切边**这三部分代码。**但不排除**还需要添加其他代码进一步调整。
 
-内存调整：内存尽可能地给大，例如分配6G，即改为6148 (6*1024)。
+内存调整：内存尽可能地给大，例如分配6G，即改为6144 (6*1024)。
 
 加载片源：将路径替换为自己的片源路径。
 
-切边：切除片源中带有的黑边(如图红框处)，点击右下角可以将右下角的```No Zoom```改为```Fixed Ratio```，放大观察黑边是否切除干净。
+切边：切除片源中带有的黑边(如图红框处)，可以将右下角的```No Zoom```改为```Fixed Ratio```，放大观察黑边是否切除干净。
 
 ![crop](/Picture/EnocdeFlow-pics/3_VSedit.png)
 
-上图蓝框中为***VSedit***的切边助手，点击图标激活Crop Mode。在下方更改Left、Top、Right与Bottom数值，而后将参数回填至``core.std.Crop``函数中，或使用右侧的```Paste crop snippet into script```，并修改脚本（需要一定代码基础）。
+除了通过肉眼估算像素值，也可以使用 ***VSedit*** 的切边助手(如图蓝框处)，点击图标激活Crop assistant。在下方更改Left、Top、Right与Bottom数值，而后将参数回填至``core.std.Crop``函数中，或使用右侧的```Paste crop snippet into script```，并修改脚本（需要一定代码基础）。
 
 ```python
 #Crop方法中，参数必须为偶数，黑边通常只出现在上下，即修改top与bottom参数
@@ -234,13 +240,13 @@ src = core.resize.Spline36(src, 1920, 1038 src_left=0 , src_top=2 , src_width=19
 
 #### 压制参数配置
 
-打开_Lnk下的***x264_launcher_portable***，选择`Application `- `Create New Job`。
+打开_Lnk下的 ***x264_launcher_portable***，选择`Application `- `Create New Job`。
 
-Source选择刚才保存的```encode.vpy```，Output会自动输出```hevc```至与脚本相同的路径下，推荐使用预设模板```FRDS rd 4 pmode crf 21```。
+Source选择刚才保存的```encode.vpy```，Output会自动输出```hevc```至与脚本相同的路径下，推荐使用预设模板```FRDS rd 4 pmode crf 21```。（具体参数[详见](https://github.com/ted423/FXXS-Encode-Guide/blob/main/%E5%8E%8B%E5%88%B6%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B.md#1%E5%B8%B8%E7%94%A8%E5%9F%BA%E7%A1%80%E5%8F%82%E6%95%B0)）
 
 ![Simple-x264 Launcher](/Picture/EnocdeFlow-pics/3_simplex264.png)
 
-因提供的代码中使用了**压制抽取**，这部分将会抽取全片的其中一部分进行压制，通过生成的``.hevc``可以大致判断全片的码率及体积。通过调整CRF数值，在17-23以0.5步进（如果机器性能较差可以以1为步进，找到差距较小的两个值(*例如18与19*)再取其中间值(*例如18.5*)）进行测试，观察与原片在细节（*纹理、边缘等*）上是否有明显丢失，找到一个质量与体积的最佳平衡。**一般**推荐码率不超过源码率(原盘为输入源时)的50~75%，过高的码率将会使HEVC编码优势丧失。
+正式压制前使用脚本内的压制抽取，通过生成的``.hevc``可以大致判断全片的码率及体积。通过调整CRF数值，在17-23范围内以0.5步进（如果机器性能较差可以以1为步进，找到差距较小的两个值(*例如18与19*)再取其中间值(*例如18.5*)）进行测试，观察与原片在细节（*纹理、边缘等*）上是否有明显丢失，找到一个质量与体积最佳平衡的CRF数值用于正式压制。**一般**推荐码率不超过源码率(原盘为输入源时)的50~75%，过高的码率将会使HEVC编码优势丧失。
 
 这里引用进阶教程的测试流程，这里涉及到更多参数的调整，视自身情况操作。
 
@@ -279,6 +285,13 @@ def FrameInfo(clip, title,
     clip = core.sub.Subtitle(clip, ['\n \n \n' + title], style=style)
     return clip
 
+# 生成带信息的截图 （如有需要请更改截图帧数值）
+def createSnap(clip, title):
+    clip = FrameInfo(clip,title)
+    for i in [63222,3279,31811,58944,60514,93062]:
+        snap = core.imwri.Write(clip.resize.Spline36(format=vs.RGB24, matrix_in_s="709", dither_type="error_diffusion"),"PNG", '%d-' + title + '.png', overwrite=True).get_frame(i)
+    return snap
+
 # VS editor输出显示bug，对于压制后的文件需要进行，进行处理。
 def outfix(clip):
 	encode = core.std.SetFrameProp(clip,prop="_Matrix",delete=True)
@@ -286,27 +299,34 @@ def outfix(clip):
 	encode = core.std.SetFrameProp(encode,prop="_Primaries",delete=True)
 	return encode
 
+#载入源
+source=r"J:\fxxsnb.mkv"
+encode=r"J:\encode.mkv"
 #-------------source文件-------------------------#
-video=core.lsmas.LWLibavSource(source=r"J:\fxxsnb.mkv") # 载入源
+video=core.lsmas.LWLibavSource(source) # 载入源
 #···同步压制脚本处理视频部分代码···#
 video=core.std.Crop(video,64,64, 0, 0)
 #···同步结束···#
 video=fvf.Depth(video, 10)
-video=FrameInfo(video,"source")# 标记信息
+#png=createSnap(video,"source") #生成截图
+video=FrameInfo(video,"source") # 标记信息
 #-------------encode文件-------------------------#
 encode=ccore.lsmas.LWLibavSource(source=r"J:\encode.mkv") # 载入编码后视频
 encode=FrameInfo(encode,"encode") # 标记信息
+#png=createSnap(encode,"encode") #生成截图
 encode=outfix(encode)# 输入修复
 #-------------输出交错预览------------------------#
 out = core.std.Interleave([video,encode]) # 交叉帧
 out.set_output()
 ```
 
-在编辑器内进行相应修改并保存代码（本文举例为```compare.vpy```），并且选择`Script` - `Preview`进行预览。生成交错后，点击图中位置或右键影片保存截图，保存`source`与`encode`为同一帧内容时的两张截图(按方向键←→切换)，推荐截取5帧共计10张图。
+在编辑器内进行相应修改并保存代码（本文举例为```compare.vpy```），并且选择`Script` - `Preview`进行预览及对比。
 
 ![sendsnapshot](/Picture/EnocdeFlow-pics/3_savesnap.png)
 
-PS：保存截图时可能出现同一数值帧两个源画面相差一帧的情况，属于正常现象，可以尝试调整压制源(video)为与encode源相同的输入函数，若依然无法调整可忽略。
+生成用于正式发布的对比图时，请将 `createSnap()` 函数取消注释，并选择`Script` - `Preview`，出现Preview框前，会在其文件夹下生成截图。
+
+~~PS：保存截图时可能出现同一数值帧两个源画面相差一帧的情况，属于正常现象，可以尝试调整压制源(video)为与encode源相同的输入函数，若依然无法调整可忽略。~~
 
 PPS：很多人初次使用脚本时可能遇到```the 'clip' dimensions doesn't match...```的报错，原因是对比图脚本中没有对source做相应的同步修改，导致“画幅”不同无法生成。
 
@@ -318,9 +338,9 @@ PPS：很多人初次使用脚本时可能遇到```the 'clip' dimensions doesn't
 
 ###  正式压制
 
-确定脚本处理以及压制参数后即可开始正式压制。但正式压制前，还需要修改之前使用的```encode.vpy```，将代码中**压制抽取**部分进行删除或注释。
+确定脚本处理以及压制参数后即可开始正式压制。但正式压制前，还需要修改之前使用的```encode.vpy```，将代码中**Output**数值改为0。
 
-```Add Job```后，就是漫长的等待，并且电脑不能关机或睡眠。。。~~无聊时可以打开任务管理器看看满载的CPU~~
+```Add Job```后，就是漫长的等待，并且电脑不能关机或睡眠,但可以暂停。。。~~无聊时可以打开任务管理器看看满载的CPU~~
 
 如果出现跑不满的情况，不必怀疑，是你的CPU太强了！需要多个任务同时方可吃满所有性能。
 
@@ -334,7 +354,7 @@ PPS：很多人初次使用脚本时可能遇到```the 'clip' dimensions doesn't
 
 尽管源中的音轨形式多种多样，但主要使用```UsEac3To```进行音轨的提取，若源音轨符合要求可以直接输出。
 
-打开_Lnk下的***UsEac3To***，点击```Settings```，检查辅助工具的路径是否正确。如果需要设置输出文件夹(Output Folder)，其路径不要带有中文/特殊符号。
+打开_Lnk下的 ***UsEac3To***，点击```Settings```，检查辅助工具的路径是否正确。如果需要设置输出文件夹(Output Folder)，其路径不要带有中文/特殊符号。
 
 点击```Input File```，选择之前确定的```00001.mpls```，随后会有一个命令行黑框出现，等待其读取结束，出现如图信息。
 
@@ -348,7 +368,7 @@ PPS：很多人初次使用脚本时可能遇到```the 'clip' dimensions doesn't
 
   - **(推荐)** 输出为DD+(EAC3)，有损格式，适用于音轨为5.1/7.1声道的TrueHD / DTS / DTS-MA
 
-    制作流程请参考[使用Dolby Encoder Suite制作DDP音轨教程](/Audio/%E4%BD%BF%E7%94%A8Dolby%20Encoder%20Suite%E5%88%B6%E4%BD%9CDDP%E9%9F%B3%E8%BD%A8%E6%95%99%E7%A8%8B.md) 参数设置请参考[韩小王大佬提供的截图](/Picture/DDP-pics/ddp-5refer.png)
+    环境搭建以及制作流程请参考[使用DEEW制作DDP音轨教程](/Audio/%E4%BD%BF%E7%94%A8Dolby%20Encoder%20Suite%E5%88%B6%E4%BD%9CDDP%E9%9F%B3%E8%BD%A8%E6%95%99%E7%A8%8B.md)
 
   - 输出为AC3，有损格式，适用于音轨为DTS/TrueHD或原本已是AC3
 
@@ -372,7 +392,7 @@ PPS：很多人初次使用脚本时可能遇到```the 'clip' dimensions doesn't
 
   - **(推荐)** 输出为DDP5.1/FLAC 5.1/TrueHD 5.1，尽可能地在音质与体积下权衡
 
-  - FLAC/aac 5.1，适用于音轨为PCM2.0
+  - FLAC/AAC 5.1，适用于音轨为PCM2.0
 
 
 #### 字幕获取
@@ -390,6 +410,8 @@ PPS：很多人初次使用脚本时可能遇到```the 'clip' dimensions doesn't
 - 添加文件
 
   推荐将原盘作为输入源之一，方便直接导出其中的字幕轨以及章节信息。
+
+  若原盘若没有章节信息，推荐使用[ChapterTool](https://github.com/tautcony/ChapterTool/releases/tag/2.33.33.332)以5-10min间隔生成章节点。
 
 - 修改
 
@@ -439,7 +461,7 @@ PPS：很多人初次使用脚本时可能遇到```the 'clip' dimensions doesn't
   
   - 进阶命名范例如下，适用于更加复杂的情况。```()```为可选，视情况添加。
   
-    `Adore.AKA.Perfect.Mothers.2017.GBR.Extended.Cut.1080p.BluRay.HDR.x265.10bit.DDP5.1.MUHD-FRDS`
+    `Adore.AKA.Perfect.Mothers.2017.GBR.Extended.Cut.1080p.BluRay.HDR.x265.10bit.DDP5.1.mUHD-FRDS`
   
     即为 ```(别名/欧洲/罗马音).(AKA).<影片名>.<年份>.(原盘版本).(版本信息).<来源>.<分辨率>.(视频效果).<编码格式>.<位深>.<音轨格式>.<压制组>```
   
@@ -466,19 +488,23 @@ PPS：很多人初次使用脚本时可能遇到```the 'clip' dimensions doesn't
 
    打开***Mediainfo***，点击`File` - `Open`，选择你要读取的文件，并点击`View` - `Text`，保存所有显示的内容。
 
-   ![mediainfo](/Picture/EnocdeFlow-pics/5_mediainfo-app.png)
+   ![mediainfo-app](/Picture/EnocdeFlow-pics/5_mediainfo-app.png)
 
    也可以使用[Mediainfo的网页版](https://mediaarea.net/MediaInfoOnline)，拖动要读取的文件到虚线框或点击红框处找到要读取的文件，稍等片刻即可显示。
 
    （文件并不会上传到服务器，所以并不会很慢）
 
-   ![mediainfo](/Picture/EnocdeFlow-pics/5_mediainfo-ol.png)
+   ![mediainfo-ol](/Picture/EnocdeFlow-pics/5_mediainfo-ol.png)
 
-   或使用***PotPlayer***播放视频，在画面中右键，`属性` - `文件信息`，并点击左下角“复制到剪贴板”，保存剪贴板内容。
+   或者使用 [mtn.ccp.ovh](https://mtn.ccp.ovh/#mediainfo) 拖动要读取的文件到虚线框或点击虚线框处找到要读取的文件，稍等片刻即可显示，而后点击 *Copy as bbcode* ，即可自动生成bbcode格式信息。
+
+   ![mediainfo-mtn](/Picture/EnocdeFlow-pics/5_mediainfo-mtn.png)
+
+   又或使用***PotPlayer***播放视频，在画面中右键，`属性` - `文件信息`，并点击左下角“复制到剪贴板”，保存剪贴板内容。
 
 2. #### 上传
 
-   上传图片需要使用到图床，可以使用自己曾经使用过的图床或选择下方图床
+   上传对比图需要使用到图床，可以使用自己曾经使用过的图床或选择下方图床
 
     (建议使用代理访问)[imgbox](https://imgbox.com/)   **(推荐)**[up.ccp.ovh](http://up.ccp.ovh)
 
@@ -558,22 +584,21 @@ PPS：很多人初次使用脚本时可能遇到```the 'clip' dimensions doesn't
 
 很高兴这个教程陪你完成了一次~~做鸭~~压制工作，但压制还有很多东西要学，在此推荐阅读以下**进阶教程**
 
-[压制高阶教程](https://github.com/ted423/FXXS-Encode-Guide/blob/main/%E9%AB%98%E6%B8%85%E8%A7%86%E9%A2%91%E8%BD%AC%E7%A0%81%E8%BF%9B%E9%98%B6%E6%8C%87%E5%8D%97.md)
+压制插件、参数讲解：[压制高阶教程](https://github.com/ted423/FXXS-Encode-Guide/blob/main/%E9%AB%98%E6%B8%85%E8%A7%86%E9%A2%91%E8%BD%AC%E7%A0%81%E8%BF%9B%E9%98%B6%E6%8C%87%E5%8D%97.md) / [VCB压制组出品教程](https://vcb-s.nmm-hd.org/) / [Encode Mystery](https://guide.geeking.moe/)
 
-[VCB压制组出品教程](https://vcb-s.nmm-hd.org/) / [Encode Mystery](https://guide.geeking.moe/)
+HDR参数计算：[计算方法1](https://ted423.github.io/Document/HDR/) / [计算方法2](/x265%2520HDR%2520%25E5%258F%2582%25E6%2595%25B0%25E8%25AE%25A1%25E7%25AE%2597%25E6%2596%25B9%25E6%25B3%2595.md)
 
-[HDR影片参数计算方法1](https://ted423.github.io/Document/HDR/) / [HDR影片参数计算方法2](https://enigmaz.gitee.io/2018/10/09/uhd-x265-options/) / [HDR影片参数计算方法3](https://t.me/c/1467204597/50793)
+x264/x265参数讲解：[iAvoe](https://github.com/iAvoe/x264-x265-QAAC-ffprobe-Ultimatetutorial/blob/master/%E6%95%99%E7%A8%8B.md)
 
 [脏线修复的各种方法](https://blog.cfandora.com/archives/118/)
 
 [How to User eac3to](https://en.wikibooks.org/wiki/Eac3to/How_to_Use) / [eac3to使用教程](https://blog.cfandora.com/archives/189/)
 
 还有这些工具网站
-[VideoHelp](http://www.videohelp.com/software/) 工具下载
 
 [VSDB](https://vsdb.top/) VS插件库
 
-[电影蓝光信息查询](https://www.blu-ray.com/)
+[blu-ray](https://www.blu-ray.com/) [dvdcompare](https://www.dvdcompare.net/) 蓝光发行查询
 
 别忘了感谢过程中帮助过你的人~
 
@@ -635,5 +660,15 @@ Rename to FXXS新手压制流程 & Pulish in Github
 增加MediaInfo网页版
 
 更换dottorrent-gui的链接
+
+若干细节补充与纠正
+
+**2022.2.27 V1.5**
+
+增加remux的片源选择
+
+压制脚本与对比脚本的代码及注释优化
+
+增加mediainfo中的mtn （感谢胖哥的工具）
 
 若干细节补充与纠正
