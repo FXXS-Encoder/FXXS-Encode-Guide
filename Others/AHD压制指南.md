@@ -2,7 +2,7 @@
 
 Not everything is going to be 100% correct and certain parts are missing.
 https://git.concertos.live/Encode_Guide/Encode_Guide/
-【译者注：本文为《Advanced HD Video Encoding Guide》翻译，限制于译者压制与翻译水平均有限，翻译可能产生偏差甚至误导，在此表示歉意。如遇不明之处还请[查看原文](https://github.com/ted423/FXXS-Encode-Guide/blob/main/encode_guide_English.pdf)。】
+【译者注：本文为《Advanced HD Video Encoding Guide》翻译，限制于译者压制与翻译水平均有限，翻译可能产生偏差甚至误导，在此表示歉意。如遇不明之处还请[查看原文](https://github.com/ted423/FXXS-Encode-Guide/blob/main/encode_guide_English.pdf)。同时有些内容随着时间变迁用法有些不同，请读者遇到相关问题时查阅相关内容。】
 【译者再注：由于所有图片所在图床一起随时间而逝，所有附图均由PDF中提取再经由Photoshop拼接，过程中可能造成些许损失，但应该不影响区分。】
 
 
@@ -164,7 +164,7 @@ YUV平面下的颜色，本例是4:2:0，指定了我们的平面大小。这方
 
 ![Figure1](/Picture/AHDVEG-pics/Figure1.png)
 
-图1：两倍放大下，左边是YUV420，右边是YUV444。用 `fvf.Debic` 缩小像素，然后用 `nnedi3_rpow2.nnedi3_rpow2`和 `resize.Bilinear` 放大像素。
+图1：两倍放大下，左边是YUV420，右边是YUV444。用 `fvf.Debic` 缩小像素，然后用 `nnedi3_rpow2.nnedi3`和 `resize.Bilinear` 放大像素。
 
 在这种情况下，最差的调整工具（bilinear）被用于色度平面。如果你使用类似 带有 KrigBilateral配置的mpv 时，这应该看起来好得多。 
 另一个例子：《寄生虫》 SDR UHD缩放为1080p 4:2:0与4:4:4的比较。
