@@ -208,8 +208,8 @@ Output = 1
 #以下为Output Mode的实现，请不要更改
 if Output == 1:
 	select = core.std.SelectEvery(src[8000:-8000],cycle=6000,offsets=range(60))
-	select = core.std.AssumeFPS(select, fpsnum=src.fps.numerator, fpsden=src.fps.denominator)
-	select = mvf.Depth(select, 10).set_output()
+	clip = core.std.AssumeFPS(select, fpsnum=src.fps.numerator, fpsden=src.fps.denominator)
+	clip = fvf.Depth(select, 10).set_output()
 else:
 	final = fvf.Depth(src, 10).set_output()
 ```
