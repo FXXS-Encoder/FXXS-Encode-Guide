@@ -311,7 +311,7 @@ video=fvf.Depth(video, 10)
 #png=createSnap(video,"source") #生成截图
 video=FrameInfo(video,"source") # 标记信息
 #-------------encode文件-------------------------#
-encode=ccore.lsmas.LWLibavSource(encode) # 载入编码后视频
+encode=core.lsmas.LWLibavSource(encode) # 载入编码后视频
 encode=FrameInfo(encode,"encode") # 标记信息
 #png=createSnap(encode,"encode") #生成截图
 encode=outfix(encode)# 输入修复
