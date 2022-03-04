@@ -285,7 +285,7 @@ ampo=1, ampn=0, pat=32, dyn=False, staticnoise=False, smode=2, thr_det=2 + round
 
 - **awsmfunc**的`bbmod`
 
-  这是原`BalanceBorders` 函数的一个修改版。它与 `ContinuityFixer` 非常相似，但在更高的**模糊值(blur)**和**阈值(thresh)**的情况下会产生更好的效果。如果它没有产生去分的结果，可以改变这些，但是你设置的模糊值越低，这个函数的破坏性就越大。它也比 `havsfunc` 和 `sgvsfunc` 中的版本快得多，因为只有必要的像素被处理。
+  这是原`BalanceBorders` 函数的一个修改版。它与 `ContinuityFixer` 非常相似，但在更高的 **模糊值(blur)** 和 **阈值(thresh)** 的情况下会产生更好的效果。如果它没有产生去分的结果，可以改变这些，但是你设置的模糊值越低，这个函数的破坏性就越大。它也比 `havsfunc` 和 `sgvsfunc` 中的版本快得多，因为只有必要的像素被处理。
 
   ```python
   import awsmfunc as awf
