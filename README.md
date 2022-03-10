@@ -24,3 +24,14 @@ Scrips里的脚本使用环境是Win,没有经过太多的测试
 `python 脚本 输入目录` 这样，里面的文本要自己根据需要修改内容再跑
 
 mkv 的 json封装，要确保输入端的mkv是规则的，否则可能会因为轨道id不对导致封错内容
+
+---
+Python 文档
+
+<https://docs.python.org/zh-cn/3.9/reference/index.html>
+
+用于理解vpy写法以及含义
+
+VS文档
+
+<http://www.vapoursynth.com/doc/pythonreference.html>
