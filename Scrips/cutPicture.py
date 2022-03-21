@@ -7,7 +7,7 @@ import os
 # encoding="utf-8",
 print(os.getcwd())
 
-OUT_DIR = os.getcwd() + "D:\\IT\\MediaTool\\Scrip"
+OUT_DIR = os.getcwd() + "/../out"
 VIDEO_DIR = os.getcwd() +"/../video"
 
 BIN_DIR = os.getcwd() +"/../bin"
