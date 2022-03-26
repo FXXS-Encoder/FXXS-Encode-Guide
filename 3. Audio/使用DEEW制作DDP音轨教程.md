@@ -4,7 +4,7 @@
 
 本文主要讲解Windows下的搭建，Linux下流程类似，自行摸索。
 
-> 本文跟随上游更新至Ver 1.2@[34437f3](https://github.com/pcroland/deew/commit/34437f3d365d5564743543ff42e89f698447d258)，可能因其更新本教程内容会有所滞后，遇到区别时请以上游的[README](https://github.com/pcroland/deew#readme)为准。
+> 本文跟随上游更新至Ver 1.2@[9dad62d](https://github.com/pcroland/deew/commit/9dad62d12bfa1786180763f6125a77b3df021d24)，可能因其更新本教程内容会有所滞后，遇到区别时请以上游的[README](https://github.com/pcroland/deew#readme)为准。
 
 ## 制作前准备
 
@@ -61,6 +61,7 @@
 
   ```toml
   ffmpeg_path = 'D:\DDP\ffmpeg\bin\ffmpeg.exe' # ffmpeg的解压位置
+  ffprobe_path = 'D:\DDP\ffmpeg\bin\ffprobe.exe' # ffprobe的解压位置
   dee_path = 'D:\DDP\dolby_encoding_engine\dee.exe' # dolby_encoding_engine的安装位置
   temp_path = 'D:\DDP\Temp' # 临时路径 可以留空不设置
   # empty: next to the script
@@ -81,7 +82,7 @@
 
 ~~/Picture/DDP-pics/deew-1eac3to.png~~
 
-由于每个盘其音轨制作方式不同，格式也有所不同，请选择输出时不要转换格式，即输出源格式。例如源为DTS，那么输出时也选择该格式。
+由于每个盘其音轨制作方式不同，格式也有所不同，请选择**输出时不要转换格式，即输出源格式。** 例如源为DTS，那么输出时也选择该格式。
 
 ### 使用DGDemux提取音轨
 
@@ -89,11 +90,11 @@
 
 ![DGDemux](/Picture/DDP-pics/deew-1dgdemux.png)
 
-若原盘音轨格式为THD，请勾选右侧 ***Do not split THD***，本流程无需其ac3兼容内核。
+~~若原盘音轨格式为THD，请勾选右侧 ***Do not split THD***，本流程无需其ac3兼容内核。~~
 
 ### (可选)直接将带有音频的视频输入
 
-适合于Remux文件，将`Remux.mkv`作为输入源，默认将第一个音轨进行转换。
+适合于Remux文件，无需任何提取，直接将`REMUX.mkv`作为输入源，默认将第一个音轨进行转换。
 
 ### Dolby Encoding Engine Wrapper使用
 
@@ -158,6 +159,11 @@ python deew.py -v
 完成后将在 *deew-main* 下找到与输入名称相同的`.ec3`文件，制作完成。
 
 补充范例拓展，有需要的类推
+- 以REMUX为输入源 将第一条音轨按默认设置制作
+
+  ```shell
+  python deew.py -i 'REMUX.mkv'
+  ```
 
 - 以 `D:\DDP\demux` 内所有 `.flac` 音频为输入源 批量生成动态范围为 *film_standard* 的DDP 并输出至 `D:\DDP\done` 
 
@@ -181,7 +187,7 @@ python deew.py -v
 
 HLW大佬搬运的deei
 
-[响度的计算](https://0bin.net/paste/7fhDvcxF#dcWxrUkGRoUmSCg6EMkJBIpNNNz-+uvYzYwcb1UZMDe)（其附有更多命令范例）
+[响度的计算](https://0bin.net/paste/7fhDvcxF#dcWxrUkGRoUmSCg6EMkJBIpNNNz-+uvYzYwcb1UZMDe)
 
 ## Credit
 
