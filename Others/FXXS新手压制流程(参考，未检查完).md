@@ -270,24 +270,15 @@ import mvsfunc as mvf
 import muvsfunc as muf
 import nnedi3_resample as nnrs
 import nnedi3_rpow2 as nnrp
-core = vs.get_core()
+import awsmfunc as awf
+#API3不能使用vs.core，请手动换回
+#core = vs.get_core()
+core = vs.core
 
-# 生成帧信息，并打入标签
-def FrameInfo(clip, title,
-              style="sans-serif,20,&H00FFFFFF,&H000000FF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,2,0,7,10,10,10,1"):
-    import functools
-    def FrameProps(n, clip):
-        clip = core.sub.Subtitle(clip, "Frame " + str(n) + " of " + str(
-            clip.num_frames) + "\nPicture type: " + clip.get_frame(n).props._PictType.decode(), style=style)
-        return clip
-
-    clip = core.std.FrameEval(clip, functools.partial(FrameProps, clip=clip))
-    clip = core.sub.Subtitle(clip, ['\n \n \n' + title], style=style)
-    return clip
 
 # 生成带信息的截图 （如有需要请更改截图帧数值）
 def createSnap(clip, title):
-    clip = FrameInfo(clip,title)
+    clip = awf.FrameInfo(clip,title)
     for i in [63222,3279,31811,58944,60514,93062]:
         snap = core.imwri.Write(clip.resize.Spline36(format=vs.RGB24, matrix_in_s="709", dither_type="error_diffusion"),"PNG", '%d-' + title + '.png', overwrite=True).get_frame(i)
     return snap
@@ -309,10 +300,10 @@ video=core.std.Crop(video,64,64, 0, 0)
 #···同步结束···#
 video=fvf.Depth(video, 10)
 #png=createSnap(video,"source") #生成截图
-video=FrameInfo(video,"source") # 标记信息
+video=awf.FrameInfo(video,"source") # 标记信息
 #-------------encode文件-------------------------#
 encode=core.lsmas.LWLibavSource(encode) # 载入编码后视频
-encode=FrameInfo(encode,"encode") # 标记信息
+encode=awf.FrameInfo(encode,"encode") # 标记信息
 #png=createSnap(encode,"encode") #生成截图
 encode=outfix(encode)# 输入修复
 #-------------输出交错预览------------------------#
