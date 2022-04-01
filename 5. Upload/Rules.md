@@ -18,7 +18,7 @@
 * 转载可使用来源文件名标准作为副标题，不用参考下列规则，尊重原始发布者的规则，但如有重大错误，需重命名发布
 * 不可出现全角字符，不可出现ASCII以外的字符，除"."以外的其他标点符号以及特殊符号不可出现
   * 对于"&",请写成and，然后标题里写带"&"的名字作为搜索命中补充，如"Kapoor & Sons 2006"应写为"Kapoor and Sons 2006",标题里写"【卡普尔和儿子们/Kapoor & Sons/卡普尔和他的孩子们】"(不过由于实际测试中豆瓣自动带出"【卡普尔家的儿子们/Kapoor & Sons - Since 1921/卡普尔和他的孩子们/卡普尔和儿子们】",所以不用特别处理)
-  * 其他标点和空格一起替换写为"."，如"Open Season 4: Scared Silly 2016"写为"Open.Season.4.Scared.Silly.2015","Yu-Gi-Oh!: The Dark Side of Dimensions 2016"写为"Yu.Gi.Oh.The.Dark.Side.of.Dimensions.2016"
+  * 除"-"外，其他标点和空格一起替换写为"."，如"Open Season 4: Scared Silly 2016"写为"Open.Season.4.Scared.Silly.2015","Yu-Gi-Oh!: The Dark Side of Dimensions 2016"写为"Yu-Gi-Oh.The.Dark.Side.of.Dimensions.2016"
 * 英文名应尽量与IMDb保持一致(除去包含符号)，对于欧洲其他非英文国家的电影，**不可只使用源语言名称命名**，可带上源语言名称 AKA 英文名，可以参考皮，如 `La nuit américaine AKA Day for Night 1973`
 * 对于有多个英文名的，只保留IMDb使用的即可，其他应出现在标题中
 * 对于日韩电影，IMDb里使用罗马音或者韩文拼音(?)作为标题的，必须使用源语言名称 AKA 英文名 如`Ah-ga-ssi AKA The Handmaiden 2016`、`Tegami AKA The Letters 2006`
