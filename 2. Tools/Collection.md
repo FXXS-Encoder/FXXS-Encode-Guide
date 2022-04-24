@@ -2,11 +2,11 @@
 > A collection of Encode tools and scripts.
 
 ### Codec
-| Name | Description | Wiki |
+| Name | Description | Document |
 | ------------- | ------------- | ------------- |
 | [x264](https://code.videolan.org/videolan/x264) | x264 codec |
-| [x264-tMod](https://github.com/jpsdr/x264) | x264-tMod codec |
-| [x265](https://bitbucket.org/multicoreware/x265_git/src) | x265 codec | [Wiki](https://x265.readthedocs.io/) |
+| [x264-tMod](https://github.com/jpsdr/x264) | x264 t_mod codec(一般使用) |
+| [x265](https://bitbucket.org/multicoreware/x265_git/src) | x265 codec | [Document](https://x265.readthedocs.io/) |
 | [x265-Yuuki](https://github.com/AmusementClub/x265) | x265-Yuuki codec |
 | [SVT-AV1](https://github.com/AOMediaCodec/SVT-AV1) | AV1 codec |
 | [vvenc](https://github.com/fraunhoferhhi/vvenc) | VVC codec |
