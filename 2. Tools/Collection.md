@@ -3,13 +3,13 @@
 
 ### Codec
 | Name | Description | Document | etc 
-| ------------- | ------------- | ------------- |
-| [x264](https://code.videolan.org/videolan/x264) | x264 codec |
-| [x264-tMod](https://github.com/jpsdr/x264) | x264 t_mod codec(一般使用) |
+| ------------- | ------------- | ------------- | ---
+| [x264](https://code.videolan.org/videolan/x264) | x264 codec | |
+| [x264-tMod](https://github.com/jpsdr/x264) | x264 t_mod codec(一般使用) | |
 | [x265](https://bitbucket.org/multicoreware/x265_git/src) | x265 codec | [Doc](https://x265.readthedocs.io/) |
-| [x265-Yuuki](https://github.com/AmusementClub/x265) | x265-Yuuki codec |
+| [x265-Yuuki](https://github.com/AmusementClub/x265) | x265-Yuuki codec | |
 | [SVT-AV1](https://github.com/AOMediaCodec/SVT-AV1) | AV1 codec | [Doc](https://github.com/AOMediaCodec/SVT-AV1/tree/master/Docs)
-| [vvenc](https://github.com/fraunhoferhhi/vvenc) | VVC codec |
+| [vvenc](https://github.com/fraunhoferhhi/vvenc) | VVC codec | |
 | [ffmpeg](https://ffmpeg.org//)| Web Only, Contain SVT-AV1(not the newest code)|[Doc](https://ffmpeg.org/ffmpeg.html) | [Win builds by BtbN](https://github.com/BtbN/FFmpeg-Builds)
 
 ### Subtitle
