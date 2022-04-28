@@ -80,9 +80,9 @@ def sfomat(value):
 # 随机某个时间生成截图
 def cutPicture(url, isHdr, time, width, height, filename, index):
     print("正在生成第%d个截图" % (index + 1))
-    print(BIN_SHELL_DIR["ffmpeg"] +  " -v quiet -ss " + time + " -i \"" + url + "\" -vcodec png -vframes 1 -y -vf scale=" + width + ":" + height + " " + filename + "-" + sfomat(
+    print(BIN_SHELL_DIR["ffmpeg"] +  " -v quiet -ss " + time + " -i \"" + url + "\" -vcodec png -vframes 1 -pix_fmt rgb24 -y -vf scale=" + width + ":" + height + " " + filename + "-" + sfomat(
         time) + ".png")
-    shell = pathApply(BIN_SHELL_DIR["ffmpeg"] +  " -v quiet -ss " + time + " -i \"" + url + "\" -vcodec png -vframes 1 -y -vf scale=" + width + ":" + height + " " + filename + "-" + sfomat(
+    shell = pathApply(BIN_SHELL_DIR["ffmpeg"] +  " -v quiet -ss " + time + " -i \"" + url + "\" -vcodec png -vframes 1 -pix_fmt rgb24 -y -vf scale=" + width + ":" + height + " " + filename + "-" + sfomat(
         time) + ".png");
     if isHdr:
         shell = pathApply(BIN_SHELL_DIR["ffmpeg"] + " -v quiet -ss " + time + " -i \"" + url + "\" -vcodec png -vframes 1 -pix_fmt rgb24 -y -vf zscale=tin=smpte2084:min=bt2020nc:pin=bt2020:rin=tv:t=smpte2084:m=bt2020nc:p=bt2020:r=tv,zscale=t=linear:npl=100,format=gbrpf32le,zscale=p=bt709,tonemap=tonemap=hable:desat=0,zscale=t=bt709:m=bt709:r=tv,format=yuv420p,scale=" + width + ":" + height + " " + filename + "-" + sfomat(
@@ -139,4 +139,4 @@ def main(url, times):
 
 
 if __name__ == "__main__":
-    main("\\\\192.168.70.69\\Share\\Source\\Cats 1998 Blu-ray 1080p AVC DTS-HD 5.1-CHDBits\\BDMV\\STREAM\\00000.m2ts", 6)
+    main("\\\\192.168.70.69\\Happy.Endings.S01.2011.Bluray.1080p.MNHD-FRDS\\Happy.Endings.S01E01.Pilot.1080p.Bluray.x265.10bit.DDP.5.1.MNHD-FRDS.mkv", 6)
