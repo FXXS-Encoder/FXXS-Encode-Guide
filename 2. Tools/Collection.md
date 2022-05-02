@@ -25,6 +25,9 @@
 | [YTSubConverter](https://github.com/arcusmaximus/YTSubConverter) | convert ytt to ass(or reverse) |
 | [vtt2ass](https://github.com/computer045/vtt2ass) | convert vtt to ass |
 | [srt2ass](https://github.com/civodulab/srt2ass) | convert srt to ass |
+| [Subrenamer](https://github.com/arition/SubRenamer) | Rename subtitles for BDRip |
+| [SubRenamer](https://github.com/qwqcode/SubRenamer) | 番剧字幕文件自动化一键批量重命名（改名）工具 |
+
 
 ### Dolby
 | Name | Description |
