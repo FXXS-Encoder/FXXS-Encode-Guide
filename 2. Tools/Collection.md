@@ -45,6 +45,7 @@
 | Name | Description |
 | ------------- | ------------- |
 | [ChapterTool](https://github.com/tautcony/ChapterTool) | chapter create tool |
+| [chapter_converter](https://github.com/fireattack/chapter_converter) | convert chapter file formats |
 
 ### Player
 | Name | Description |
