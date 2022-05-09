@@ -8,7 +8,9 @@ import adptvgrnMod as agm
 
 
 core = vs.core
-core.max_cache_size = 16384
+#对比图需要帧率也保持，一致，一些老x264的帧率写成23.976会存在问题，跟24000/1001不匹配
+#可以这么加载 encode = core.lsmas.LWLibavSource(source=r'',fpsnum = 24000,fpsden = 1001,format="yuv420p10")
+ 
 #1引入
 encode1 = core.lsmas.LWLibavSource(source=r".mkv",format="yuv420p10")
 #2引入
