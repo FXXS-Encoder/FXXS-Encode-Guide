@@ -12,6 +12,9 @@
 | [vvenc](https://github.com/fraunhoferhhi/vvenc) | VVC codec | |
 | [ffmpeg](https://ffmpeg.org//)| Web Only, Contain SVT-AV1(not the newest code)|[Doc](https://ffmpeg.org/ffmpeg.html) | [Win builds by BtbN](https://github.com/BtbN/FFmpeg-Builds)
 | [qaac](https://github.com/nu774/qaac)| 是基于 Apple 编码器的命令行 AAC/ALAC 编码器前端。开源|[Wiki](https://github.com/nu774/qaac/wiki)|
+| [flac](https://xiph.org/flac/)|很多现有的编码器会调用libFLAC.dll，但项目长期不放出libFLAC.dll的编译版本，需要自己找别人的编译版本|[Doc](https://xiph.org/flac/documentation.html)|
+| [opus](https://opus-codec.org/)|2019年发布最后一版 1.3.1|[Doc](https://opus-codec.org/docs/)|
+
 
 ### VS etc
 | Name | Description | Document | etc 
