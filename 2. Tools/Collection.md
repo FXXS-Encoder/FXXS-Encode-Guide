@@ -14,6 +14,7 @@
 | [qaac](https://github.com/nu774/qaac)| 是基于 Apple 编码器的命令行 AAC/ALAC 编码器前端。开源|[Wiki](https://github.com/nu774/qaac/wiki)|
 | [flac](https://xiph.org/flac/)|很多现有的编码器会调用libFLAC.dll，但项目长期不放出libFLAC.dll的编译版本，需要自己找别人的编译版本|[Doc](https://xiph.org/flac/documentation.html)|
 | [opus](https://opus-codec.org/)|2019年发布最后一版 1.3.1|[Doc](https://opus-codec.org/docs/)|
+| [eac3to with UsEac3to GUI](https://www.videohelp.com/software/eac3to)|[UsEac3to GUI](https://forum.doom9.org/showthread.php?t=145574) 作者:tebasuna51 [eac3to](https://forum.doom9.org/showthread.php?t=125966) 作者:madshi<br>不过仍有部分组件需要升级|[Wiki](http://en.wikibooks.org/wiki/Eac3to)|
 
 
 ### VS etc
@@ -22,6 +23,12 @@
 | [VS Official Web](https://www.vapoursynth.com/) \ [VS Github](https://github.com/vapoursynth/vapoursynth)|VS|[Doc](http://www.vapoursynth.com/doc/index.html)|
 | [VapourSynth Editor Modified by YomikoR](https://github.com/YomikoR/VapourSynth-Editor)|原版长期未更新，并且存在一些不足,故只放mod版| |
 | [VapourSynth Editor 2](https://bitbucket.org/gundamftw/vapoursynth-editor-2)|Untest|||
+
+### Other Tool
+| Name | Description | Document | etc 
+| ------------- | ------------- | ------------- | ---
+| [OKEGui](https://github.com/vcb-s/OKEGui)|Untest，平时习惯先封装一个，然后通过样板json批量生成再用mkvmerge命令行批量封装| |
+
 
 ### Subtitle
 | Name | Description |
