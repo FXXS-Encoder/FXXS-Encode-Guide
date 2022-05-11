@@ -12,6 +12,13 @@
 | [vvenc](https://github.com/fraunhoferhhi/vvenc) | VVC codec | |
 | [ffmpeg](https://ffmpeg.org//)| Web Only, Contain SVT-AV1(not the newest code)|[Doc](https://ffmpeg.org/ffmpeg.html) | [Win builds by BtbN](https://github.com/BtbN/FFmpeg-Builds)
 
+### VS etc
+| Name | Description | Document | etc 
+| ------------- | ------------- | ------------- | ---
+| [VS Official Web](https://www.vapoursynth.com/) [VS Github](https://github.com/vapoursynth/vapoursynth)|VS|[Doc](http://www.vapoursynth.com/doc/index.html)|
+| [VapourSynth Editor Modified by YomikoR](https://github.com/YomikoR/VapourSynth-Editor)|原版长期未更新，并且存在一些不足| |
+| [VapourSynth Editor 2](https://bitbucket.org/gundamftw/vapoursynth-editor-2)|Untest|||
+
 ### Subtitle
 | Name | Description |
 | ------------- | ------------- |
