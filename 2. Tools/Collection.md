@@ -11,6 +11,7 @@
 | [SVT-AV1](https://github.com/AOMediaCodec/SVT-AV1) | AV1 codec | [Doc](https://github.com/AOMediaCodec/SVT-AV1/tree/master/Docs)
 | [vvenc](https://github.com/fraunhoferhhi/vvenc) | VVC codec | |
 | [ffmpeg](https://ffmpeg.org//)| Web Only, Contain SVT-AV1(not the newest code)|[Doc](https://ffmpeg.org/ffmpeg.html) | [Win builds by BtbN](https://github.com/BtbN/FFmpeg-Builds)
+| [qaac](https://github.com/nu774/qaac)| 是基于 Apple 编码器的命令行 AAC/ALAC 编码器前端。开源|[Wiki](https://github.com/nu774/qaac/wiki)|
 
 ### VS etc
 | Name | Description | Document | etc 
