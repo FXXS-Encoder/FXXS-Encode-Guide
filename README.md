@@ -37,3 +37,26 @@ Python 文档
 VS文档
 
 <http://www.vapoursynth.com/doc/pythonreference.html>
+
+x265文档
+<https://x265.readthedocs.io/en/latest/cli.html>
+
+---
+一些可供参考的其他教程
+
+VCB-S
+
+建议有了第一步压制作品，会写VS脚本之后再看
+
+<https://vcb-s.nmm-hd.org/>
+
+AHD(英文)
+
+<https://silentaperture.gitlab.io/mdbook-guide/introduction.html>
+
+
+iAvoe
+
+这个的教程跟我们的有一些出入，可能跟侧重点有关
+
+<https://github.com/iAvoe/x264-x265-QAAC-ffprobe-Ultimatetutorial>
