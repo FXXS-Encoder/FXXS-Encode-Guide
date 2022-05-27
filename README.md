@@ -1,12 +1,6 @@
 # FXXS-Encode-Guide
 FXXS压制教程
 
-本教程采用[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.zh)
-
-本项目内临时放置的由其他人发布的教程不受CC BY 4.0影响。
-
-所有权归原发布所有
-
 本教程还在建设中，并且存在不准确，瞎写等问题。
 
 公开教程寄望于能降低压制学习门槛，促进沟通交流。
