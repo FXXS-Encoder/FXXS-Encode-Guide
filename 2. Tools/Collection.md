@@ -28,6 +28,7 @@
 | Name | Description | Document | etc 
 | ------------- | ------------- | ------------- | ---
 | [OKEGui](https://github.com/vcb-s/OKEGui)|Untest，平时习惯先封装一个，然后通过样板json批量生成再用mkvmerge命令行批量封装| |
+| [VSGUI](https://github.com/YohoYang/VSGUI)|Untest，类似于MEGUI的VS版本| |
 
 
 ### Subtitle
