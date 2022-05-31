@@ -7,7 +7,7 @@
 | [x264](https://code.videolan.org/videolan/x264) | x264 codec | 
 | [x264-tMod](https://github.com/jpsdr/x264) | x264 t_mod codec(一般使用) | 
 | [x265](https://bitbucket.org/multicoreware/x265_git/src) | x265 codec | [Doc](https://x265.readthedocs.io/) 
-| [x265-Yuuki](https://github.com/AmusementClub/x265) | x265-Yuuki codec | 
+| [x265-Yuuki](https://github.com/msg7086/x265-Yuuki-Asuna) | x265-Yuuki codec | 
 | [SVT-AV1](https://github.com/AOMediaCodec/SVT-AV1) | AV1 codec | [Doc](https://github.com/AOMediaCodec/SVT-AV1/tree/master/Docs)
 | [vvenc](https://github.com/fraunhoferhhi/vvenc) | VVC codec | 
 | [ffmpeg](https://ffmpeg.org//)| Web Only, Contain SVT-AV1(not the newest code)<br> [Win builds by BtbN](https://github.com/BtbN/FFmpeg-Builds)|[Doc](https://ffmpeg.org/ffmpeg.html) 
@@ -28,6 +28,7 @@
 | Name | Description | Document | etc 
 | ------------- | ------------- | ------------- | ---
 | [OKEGui](https://github.com/vcb-s/OKEGui)|Untest，平时习惯先封装一个，然后通过样板json批量生成再用mkvmerge命令行批量封装| |
+| [VSGUI](https://github.com/YohoYang/VSGUI)|Untest，类似于MEGUI的VS版本| |
 
 
 ### Subtitle
