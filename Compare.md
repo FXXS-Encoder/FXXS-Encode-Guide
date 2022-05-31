@@ -1,6 +1,6 @@
 # psy -rd & psy rdoq 
 https://slow.pics/c/mW5NI4v1
-
+https://slow.pics/c/1xLeXz7P
 ## 1
 ```
 [2022-05-26][09:57:18] Simple x264 Launcher (Build #1216), built 2021-12-08
@@ -378,4 +378,123 @@ Matrix coefficients         : BT.709
 [2022-05-28][02:45:39] --- COMPLETED ---
 [2022-05-28][02:45:39] 
 [2022-05-28][02:45:39] Job finished at 2022-05-28, 02:45:39. Process took 892 minutes, 16 seconds.
+```
+
+# 4
+```
+[2022-05-30][10:55:04] Simple x264 Launcher (Build #1216), built 2021-12-08
+[2022-05-30][10:55:04] 
+[2022-05-30][10:55:04] Job started at 2022-05-30, 10:55:04.
+[2022-05-30][10:55:04] 
+[2022-05-30][10:55:04] Source file : Z:\Rip\Come.and.See.1985.FRA.BluRay.Remux.1080p.AVC.FLAC.1.0-ZQ_rd1.5_RDOq5.vpy
+[2022-05-30][10:55:04] Output file : Z:\Rip\Come.and.See.1985.FRA.BluRay.Remux.1080p.AVC.FLAC.1.0-ZQ_rd1.5_RDOq5.hevc
+[2022-05-30][10:55:04] 
+[2022-05-30][10:55:04] --- SYSTEMINFO ---
+[2022-05-30][10:55:04] 
+[2022-05-30][10:55:04] Binary Path : Z:\MediaTool\x264_launcher
+[2022-05-30][10:55:04] Avisynth    : No
+[2022-05-30][10:55:04] VapourSynth : Yes
+[2022-05-30][10:55:04] 
+[2022-05-30][10:55:04] --- SETTINGS ---
+[2022-05-30][10:55:04] 
+[2022-05-30][10:55:04] Encoder : x265 (HEVC/H.265), 64-Bit (x64), 10-Bit
+[2022-05-30][10:55:04] Source  : VapourSynth (vpy)
+[2022-05-30][10:55:04] RC Mode : CRF
+[2022-05-30][10:55:04] Preset  : placebo
+[2022-05-30][10:55:04] Tuning  : <None>
+[2022-05-30][10:55:04] Profile : <Unrestricted>
+[2022-05-30][10:55:04] Custom  : --level-idc 5.1 --ctu 32 --rd 4 --subme 7 --ref 5 --merange=57 --me 3 --qg-size 8 --weightb --pmode --no-rect --no-amp --rskip 0 --tu-intra-depth 4 --tu-inter-depth 4 --range limited --no-open-gop --no-sao --no-early-skip --min-keyint=1 --rc-lookahead 100 --no-cutree --bframes 8 --vbv-bufsize 160000 --vbv-maxrate 160000 --colorprim bt709 --transfer bt709 --colormatrix bt709 --deblock -3:-3 --no-strong-intra-smoothing --ipratio 1.3 --pbratio 1.2 --qcomp 0.65 --aq-mode 1 --aq-strength 1 --psy-rd 1.5 --psy-rdoq 5.00 --cbqpoffs -2 --crqpoffs -2
+[2022-05-30][10:55:04] 
+[2022-05-30][10:55:04] --- CHECK VERSION ---
+[2022-05-30][10:55:04] 
+[2022-05-30][10:55:04] Detect video encoder version:
+[2022-05-30][10:55:04] 
+[2022-05-30][10:55:04] Creating process:
+[2022-05-30][10:55:04] Z:\MediaTool\x264_launcher\toolset\x64\x265_x64.exe --version
+[2022-05-30][10:55:04] 
+[2022-05-30][10:55:04] x265 [info]: HEVC encoder version 3.5+36-9b59d4554
+[2022-05-30][10:55:04] x265 [info]: build info [Windows][MSVC 1931][64 bit] 8bit+10bit+12bit
+[2022-05-30][10:55:04] x265 [info]: using cpu capabilities: MMX2 SSE2Fast LZCNT SSSE3 SSE4.2 AVX FMA3 BMI2 AVX2
+[2022-05-30][10:55:04] 
+[2022-05-30][10:55:04] Detect video source version:
+[2022-05-30][10:55:04] 
+[2022-05-30][10:55:04] Creating process:
+[2022-05-30][10:55:04] Z:\MediaTool\x264_launcher\extra\VapourSynth-64\vspipe.exe --version
+[2022-05-30][10:55:04] 
+[2022-05-30][10:55:07] VapourSynth Video Processing Library
+[2022-05-30][10:55:07] Copyright (c) 2012-2021 Fredrik Mellbin
+[2022-05-30][10:55:07] Core R58
+[2022-05-30][10:55:07] API R4.0
+[2022-05-30][10:55:07] API R3.6
+[2022-05-30][10:55:07] Options: -
+[2022-05-30][10:55:07] 
+[2022-05-30][10:55:07] > x265 version: 3.5+36
+[2022-05-30][10:55:07] > VapourSynth version: r58 (API r3)
+[2022-05-30][10:55:07] 
+[2022-05-30][10:55:07] --- GET SOURCE INFO ---
+[2022-05-30][10:55:07] 
+[2022-05-30][10:55:07] Creating process:
+[2022-05-30][10:55:07] Z:\MediaTool\x264_launcher\extra\VapourSynth-64\vspipe.exe --info Z:\Rip\come.and.see.1985.fra.bluray.remux.1080p.avc.flac.1.0-zq_rd1.5_rdoq5.vpy -
+[2022-05-30][10:55:07] 
+[2022-05-30][10:55:09] Width: 1476
+[2022-05-30][10:55:09] Height: 1080
+[2022-05-30][10:55:09] Frames: 205659
+[2022-05-30][10:55:09] FPS: 24000/1001 (23.976 fps)
+[2022-05-30][10:55:09] Format Name: YUV420P10
+[2022-05-30][10:55:09] Color Family: YUV
+[2022-05-30][10:55:09] Alpha: No
+[2022-05-30][10:55:09] Sample Type: Integer
+[2022-05-30][10:55:09] Bits: 10
+[2022-05-30][10:55:09] SubSampling W: 1
+[2022-05-30][10:55:09] SubSampling H: 1
+[2022-05-30][10:55:09] 
+[2022-05-30][10:55:09] Resolution: 1476 x 1080
+[2022-05-30][10:55:09] Frame Rate: 24000/1001
+[2022-05-30][10:55:09] No. Frames: 205659
+[2022-05-30][10:55:09] 
+[2022-05-30][10:55:09] --- ENCODING VIDEO ---
+[2022-05-30][10:55:09] 
+[2022-05-30][10:55:09] Creating input process:
+[2022-05-30][10:55:09] Z:\MediaTool\x264_launcher\extra\VapourSynth-64\vspipe.exe --y4m Z:\Rip\come.and.see.1985.fra.bluray.remux.1080p.avc.flac.1.0-zq_rd1.5_rdoq5.vpy -
+[2022-05-30][10:55:09] 
+[2022-05-30][10:55:09] Creating encoder process:
+[2022-05-30][10:55:09] Z:\MediaTool\x264_launcher\toolset\x64\x265_x64.exe -D 10 --crf 20.0 --preset placebo --level-idc 5.1 --ctu 32 --rd 4 --subme 7 --ref 5 --merange=57 --me 3 --qg-size 8 --weightb --pmode --no-rect --no-amp --rskip 0 --tu-intra-depth 4 --tu-inter-depth 4 --range limited --no-open-gop --no-sao --no-early-skip --min-keyint=1 --rc-lookahead 100 --no-cutree --bframes 8 --vbv-bufsize 160000 --vbv-maxrate 160000 --colorprim bt709 --transfer bt709 --colormatrix bt709 --deblock -3:-3 --no-strong-intra-smoothing --ipratio 1.3 --pbratio 1.2 --qcomp 0.65 --aq-mode 1 --aq-strength 1 --psy-rd 1.5 --psy-rdoq 5.00 --cbqpoffs -2 --crqpoffs -2 --output Z:\Rip\Come.and.See.1985.FRA.BluRay.Remux.1080p.AVC.FLAC.1.0-ZQ_rd1.5_RDOq5.hevc --frames 205659 --y4m -
+[2022-05-30][10:55:09] 
+[2022-05-30][10:55:10] y4m [info]: 1476x1080 fps 24000/1001 i420p10 unknown frame count
+[2022-05-30][10:55:10] raw [info]: output file: Z:\Rip\Come.and.See.1985.FRA.BluRay.Remux.1080p.AVC.FLAC.1.0-ZQ_rd1.5_RDOq5.hevc
+[2022-05-30][10:55:10] x265 [info]: HEVC encoder version 3.5+36-9b59d4554
+[2022-05-30][10:55:10] x265 [info]: build info [Windows][MSVC 1931][64 bit] 10bit
+[2022-05-30][10:55:10] x265 [info]: using cpu capabilities: MMX2 SSE2Fast LZCNT SSSE3 SSE4.2 AVX FMA3 BMI2 AVX2
+[2022-05-30][10:55:10] x265 [info]: Main 10 profile, Level-5.1 (High tier)
+[2022-05-30][10:55:10] x265 [info]: Thread pool 0 using 20 threads on numa nodes 0
+[2022-05-30][10:55:10] x265 [info]: Thread pool 1 using 20 threads on numa nodes 1
+[2022-05-30][10:55:10] x265 [info]: Slices : 1
+[2022-05-30][10:55:10] x265 [info]: frame threads / pool features : 5 / wpp(34 rows)+pmode
+[2022-05-30][10:55:10] x265 [info]: Coding QT: max CU size, min CU size : 32 / 8
+[2022-05-30][10:55:10] x265 [info]: Residual QT: max TU size, max depth : 32 / 4 inter / 4 intra
+[2022-05-30][10:55:10] x265 [info]: ME / range / subpel / merge : star / 57 / 7 / 5
+[2022-05-30][10:55:10] x265 [info]: Keyframe min / max / scenecut / bias : 1 / 250 / 40 / 5.00
+[2022-05-30][10:55:10] x265 [info]: Cb/Cr QP Offset : -2 / -2
+[2022-05-30][10:55:10] x265 [info]: Lookahead / bframes / badapt : 100 / 8 / 2
+[2022-05-30][10:55:10] x265 [info]: b-pyramid / weightp / weightb : 1 / 1 / 1
+[2022-05-30][10:55:10] x265 [info]: References / ref-limit cu / depth : 5 / off / off
+[2022-05-30][10:55:10] x265 [info]: AQ: mode / str / qg-size / cu-tree : 1 / 1.0 / 8 / 0
+[2022-05-30][10:55:10] x265 [info]: Rate Control / qCompress : CRF-20.0 / 0.65
+[2022-05-30][10:55:10] x265 [info]: VBV/HRD buffer / max-rate / init : 160000 / 160000 / 0.900
+[2022-05-30][10:55:10] x265 [info]: tools: rd=4 psy-rd=1.50 rdoq=2 psy-rdoq=5.00 tskip signhide tmvp
+[2022-05-30][10:55:10] x265 [info]: tools: b-intra deblock(tC=-3:B=-3)
+[2022-05-31][01:44:22] x265 [info]: frame I: 1045, Avg QP:19.53 kb/s: 31136.56
+[2022-05-31][01:44:22] x265 [info]: frame P: 31113, Avg QP:20.68 kb/s: 25051.83
+[2022-05-31][01:44:22] x265 [info]: frame B: 173501, Avg QP:21.94 kb/s: 17003.65
+[2022-05-31][01:44:22] x265 [info]: Weighted P-Frames: Y:22.0% UV:4.4%
+[2022-05-31][01:44:22] x265 [info]: Weighted B-Frames: Y:19.0% UV:2.2%
+[2022-05-31][01:44:22] x265 [info]: consecutive B-frames: 4.4% 0.9% 1.6% 14.4% 8.3% 21.7% 10.6% 17.7% 20.4%
+[2022-05-31][01:44:22] encoded 205659 frames in 53351.98s (3.85 fps), 18293.03 kb/s, Avg QP:21.74
+[2022-05-31][01:44:23] vpyp [info]: Deprecated option --y4m specified, use -c y4m instead
+[2022-05-31][01:44:23] vpyp [info]: Output 205659 frames in 53344.60 seconds (3.86 fps)
+[2022-05-31][01:44:23] Final file size is 18.3 GB bytes.
+[2022-05-31][01:44:23] 
+[2022-05-31][01:44:23] --- COMPLETED ---
+[2022-05-31][01:44:23] 
+[2022-05-31][01:44:23] Job finished at 2022-05-31, 01:44:23. Process took 889 minutes, 18 seconds.
 ```
