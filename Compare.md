@@ -1,7 +1,18 @@
-# psy -rd & psy rdoq 
+# psy-rd & psy-rdoq 
+第一次的对比图，当时发现 psy-rdoq 的提高会大幅度增加码率，pey-rd调高起了反效果，故淘汰
 https://slow.pics/c/mW5NI4v1
+
+加了一组psy-rd 1.5 psy-rdoq 5 的 然后发现画面反而好了些
 https://slow.pics/c/1xLeXz7P
-## 1
+
+然后再加了一个通常参数 crf开到 19 码率差不多的
+https://slow.pics/c/0RJZoJyW
+
+## 结论
+有问题调crf就完了，psy-rd 开到2,高码下会起反作用。
+rdoq 开高也不太有必要，画面会有些浮肿
+
+## --crf 20.0 --psy-rd 1.50 --psy-rdoq 1 16053.14 kb/s
 ```
 [2022-05-26][09:57:18] Simple x264 Launcher (Build #1216), built 2021-12-08
 [2022-05-26][09:57:18] 
@@ -139,7 +150,7 @@ Transfer characteristics    : BT.709
 Matrix coefficients         : BT.709
 ```
 
-## 2
+##  --crf 20.0 --psy-rd 2 --psy-rdoq 1.00 16477.59 kb/s
 ```
 [2022-05-27][11:52:26] Simple x264 Launcher (Build #1216), built 2021-12-08
 [2022-05-27][11:52:26] 
@@ -261,7 +272,7 @@ Matrix coefficients         : BT.709
 
 
 
-## 3
+## --crf 20.0 --psy-rd 2 --psy-rdoq 5.00 18741.22 kb/s
 ```
 [2022-05-27][11:53:22] Simple x264 Launcher (Build #1216), built 2021-12-08
 [2022-05-27][11:53:22] 
@@ -380,7 +391,7 @@ Matrix coefficients         : BT.709
 [2022-05-28][02:45:39] Job finished at 2022-05-28, 02:45:39. Process took 892 minutes, 16 seconds.
 ```
 
-# 4
+## --crf 20 --psy-rd 1.5 --psy-rdoq 5.00 18293.03 kb/s
 ```
 [2022-05-30][10:55:04] Simple x264 Launcher (Build #1216), built 2021-12-08
 [2022-05-30][10:55:04] 
@@ -497,4 +508,124 @@ Matrix coefficients         : BT.709
 [2022-05-31][01:44:23] --- COMPLETED ---
 [2022-05-31][01:44:23] 
 [2022-05-31][01:44:23] Job finished at 2022-05-31, 01:44:23. Process took 889 minutes, 18 seconds.
+```
+
+
+## --crf 19 --psy-rd 1.50 --psy-rdoq 1.00 18464.78 kb/s
+```
+[2022-06-03][21:20:50] Simple x264 Launcher (Build #1216), built 2021-12-08
+[2022-06-03][21:20:50] 
+[2022-06-03][21:20:50] Job started at 2022-06-03, 21:20:50.
+[2022-06-03][21:20:50] 
+[2022-06-03][21:20:50] Source file : Z:\Rip\Come.and.See.1985.FRA.BluRay.Remux.1080p.AVC.FLAC.1.0-ZQ_crf19.vpy
+[2022-06-03][21:20:50] Output file : Z:\Rip\Come.and.See.1985.FRA.BluRay.Remux.1080p.AVC.FLAC.1.0-ZQ_crf19.hevc
+[2022-06-03][21:20:50] 
+[2022-06-03][21:20:50] --- SYSTEMINFO ---
+[2022-06-03][21:20:50] 
+[2022-06-03][21:20:50] Binary Path : Z:\MediaTool\x264_launcher
+[2022-06-03][21:20:50] Avisynth    : No
+[2022-06-03][21:20:50] VapourSynth : Yes
+[2022-06-03][21:20:50] 
+[2022-06-03][21:20:50] --- SETTINGS ---
+[2022-06-03][21:20:50] 
+[2022-06-03][21:20:50] Encoder : x265 (HEVC/H.265), 64-Bit (x64), 10-Bit
+[2022-06-03][21:20:50] Source  : VapourSynth (vpy)
+[2022-06-03][21:20:50] RC Mode : CRF
+[2022-06-03][21:20:50] Preset  : placebo
+[2022-06-03][21:20:50] Tuning  : <None>
+[2022-06-03][21:20:50] Profile : <Unrestricted>
+[2022-06-03][21:20:50] Custom  : --level-idc 5.1 --ctu 32 --rd 4 --subme 7 --ref 5 --merange=57 --me 3 --qg-size 8 --weightb --pmode --no-rect --no-amp --rskip 0 --tu-intra-depth 4 --tu-inter-depth 4 --range limited --no-open-gop --no-sao --no-early-skip --min-keyint=1 --rc-lookahead 100 --no-cutree --bframes 8 --vbv-bufsize 160000 --vbv-maxrate 160000 --colorprim bt709 --transfer bt709 --colormatrix bt709 --deblock -3:-3 --no-strong-intra-smoothing --ipratio 1.3 --pbratio 1.2 --qcomp 0.65 --aq-mode 1 --aq-strength 1 --psy-rd 1.50 --psy-rdoq 1.00 --cbqpoffs -2 --crqpoffs -2
+[2022-06-03][21:20:50] 
+[2022-06-03][21:20:50] --- CHECK VERSION ---
+[2022-06-03][21:20:50] 
+[2022-06-03][21:20:50] Detect video encoder version:
+[2022-06-03][21:20:50] 
+[2022-06-03][21:20:50] Creating process:
+[2022-06-03][21:20:50] Z:\MediaTool\x264_launcher\toolset\x64\x265_x64.exe --version
+[2022-06-03][21:20:50] 
+[2022-06-03][21:20:50] x265 [info]: HEVC encoder version 3.5+36-9b59d4554
+[2022-06-03][21:20:50] x265 [info]: build info [Windows][MSVC 1931][64 bit] 8bit+10bit+12bit
+[2022-06-03][21:20:50] x265 [info]: using cpu capabilities: MMX2 SSE2Fast LZCNT SSSE3 SSE4.2 AVX FMA3 BMI2 AVX2
+[2022-06-03][21:20:50] 
+[2022-06-03][21:20:50] Detect video source version:
+[2022-06-03][21:20:50] 
+[2022-06-03][21:20:50] Creating process:
+[2022-06-03][21:20:50] Z:\MediaTool\x264_launcher\extra\VapourSynth-64\vspipe.exe --version
+[2022-06-03][21:20:50] 
+[2022-06-03][21:20:54] VapourSynth Video Processing Library
+[2022-06-03][21:20:54] Copyright (c) 2012-2021 Fredrik Mellbin
+[2022-06-03][21:20:54] Core R58
+[2022-06-03][21:20:54] API R4.0
+[2022-06-03][21:20:54] API R3.6
+[2022-06-03][21:20:54] Options: -
+[2022-06-03][21:20:54] 
+[2022-06-03][21:20:54] > x265 version: 3.5+36
+[2022-06-03][21:20:54] > VapourSynth version: r58 (API r3)
+[2022-06-03][21:20:54] 
+[2022-06-03][21:20:54] --- GET SOURCE INFO ---
+[2022-06-03][21:20:54] 
+[2022-06-03][21:20:54] Creating process:
+[2022-06-03][21:20:54] Z:\MediaTool\x264_launcher\extra\VapourSynth-64\vspipe.exe --info Z:\Rip\come.and.see.1985.fra.bluray.remux.1080p.avc.flac.1.0-zq_crf19.vpy -
+[2022-06-03][21:20:54] 
+[2022-06-03][21:20:55] Width: 1476
+[2022-06-03][21:20:55] Height: 1080
+[2022-06-03][21:20:55] Frames: 205659
+[2022-06-03][21:20:55] FPS: 24000/1001 (23.976 fps)
+[2022-06-03][21:20:55] Format Name: YUV420P10
+[2022-06-03][21:20:55] Color Family: YUV
+[2022-06-03][21:20:55] Alpha: No
+[2022-06-03][21:20:55] Sample Type: Integer
+[2022-06-03][21:20:55] Bits: 10
+[2022-06-03][21:20:55] SubSampling W: 1
+[2022-06-03][21:20:55] SubSampling H: 1
+[2022-06-03][21:20:55] 
+[2022-06-03][21:20:55] Resolution: 1476 x 1080
+[2022-06-03][21:20:55] Frame Rate: 24000/1001
+[2022-06-03][21:20:55] No. Frames: 205659
+[2022-06-03][21:20:55] 
+[2022-06-03][21:20:55] --- ENCODING VIDEO ---
+[2022-06-03][21:20:55] 
+[2022-06-03][21:20:55] Creating input process:
+[2022-06-03][21:20:55] Z:\MediaTool\x264_launcher\extra\VapourSynth-64\vspipe.exe --y4m Z:\Rip\come.and.see.1985.fra.bluray.remux.1080p.avc.flac.1.0-zq_crf19.vpy -
+[2022-06-03][21:20:55] 
+[2022-06-03][21:20:55] Creating encoder process:
+[2022-06-03][21:20:55] Z:\MediaTool\x264_launcher\toolset\x64\x265_x64.exe -D 10 --crf 19.3 --preset placebo --level-idc 5.1 --ctu 32 --rd 4 --subme 7 --ref 5 --merange=57 --me 3 --qg-size 8 --weightb --pmode --no-rect --no-amp --rskip 0 --tu-intra-depth 4 --tu-inter-depth 4 --range limited --no-open-gop --no-sao --no-early-skip --min-keyint=1 --rc-lookahead 100 --no-cutree --bframes 8 --vbv-bufsize 160000 --vbv-maxrate 160000 --colorprim bt709 --transfer bt709 --colormatrix bt709 --deblock -3:-3 --no-strong-intra-smoothing --ipratio 1.3 --pbratio 1.2 --qcomp 0.65 --aq-mode 1 --aq-strength 1 --psy-rd 1.50 --psy-rdoq 1.00 --cbqpoffs -2 --crqpoffs -2 --output Z:\Rip\Come.and.See.1985.FRA.BluRay.Remux.1080p.AVC.FLAC.1.0-ZQ_crf19.hevc --frames 205659 --y4m -
+[2022-06-03][21:20:55] 
+[2022-06-03][21:20:57] y4m [info]: 1476x1080 fps 24000/1001 i420p10 unknown frame count
+[2022-06-03][21:20:57] raw [info]: output file: Z:\Rip\Come.and.See.1985.FRA.BluRay.Remux.1080p.AVC.FLAC.1.0-ZQ_crf19.hevc
+[2022-06-03][21:20:57] x265 [info]: HEVC encoder version 3.5+36-9b59d4554
+[2022-06-03][21:20:57] x265 [info]: build info [Windows][MSVC 1931][64 bit] 10bit
+[2022-06-03][21:20:57] x265 [info]: using cpu capabilities: MMX2 SSE2Fast LZCNT SSSE3 SSE4.2 AVX FMA3 BMI2 AVX2
+[2022-06-03][21:20:57] x265 [info]: Main 10 profile, Level-5.1 (High tier)
+[2022-06-03][21:20:57] x265 [info]: Thread pool 0 using 20 threads on numa nodes 0
+[2022-06-03][21:20:57] x265 [info]: Thread pool 1 using 20 threads on numa nodes 1
+[2022-06-03][21:20:57] x265 [info]: Slices : 1
+[2022-06-03][21:20:57] x265 [info]: frame threads / pool features : 5 / wpp(34 rows)+pmode
+[2022-06-03][21:20:57] x265 [info]: Coding QT: max CU size, min CU size : 32 / 8
+[2022-06-03][21:20:57] x265 [info]: Residual QT: max TU size, max depth : 32 / 4 inter / 4 intra
+[2022-06-03][21:20:57] x265 [info]: ME / range / subpel / merge : star / 57 / 7 / 5
+[2022-06-03][21:20:57] x265 [info]: Keyframe min / max / scenecut / bias : 1 / 250 / 40 / 5.00
+[2022-06-03][21:20:57] x265 [info]: Cb/Cr QP Offset : -2 / -2
+[2022-06-03][21:20:57] x265 [info]: Lookahead / bframes / badapt : 100 / 8 / 2
+[2022-06-03][21:20:57] x265 [info]: b-pyramid / weightp / weightb : 1 / 1 / 1
+[2022-06-03][21:20:57] x265 [info]: References / ref-limit cu / depth : 5 / off / off
+[2022-06-03][21:20:57] x265 [info]: AQ: mode / str / qg-size / cu-tree : 1 / 1.0 / 8 / 0
+[2022-06-03][21:20:57] x265 [info]: Rate Control / qCompress : CRF-19.3 / 0.65
+[2022-06-03][21:20:57] x265 [info]: VBV/HRD buffer / max-rate / init : 160000 / 160000 / 0.900
+[2022-06-03][21:20:57] x265 [info]: tools: rd=4 psy-rd=1.50 rdoq=2 psy-rdoq=1.00 tskip signhide tmvp
+[2022-06-03][21:20:57] x265 [info]: tools: b-intra deblock(tC=-3:B=-3)
+[2022-06-04][12:11:18] x265 [info]: frame I: 1045, Avg QP:18.83 kb/s: 30681.34
+[2022-06-04][12:11:18] x265 [info]: frame P: 31113, Avg QP:19.99 kb/s: 24513.25
+[2022-06-04][12:11:18] x265 [info]: frame B: 173501, Avg QP:21.28 kb/s: 17306.56
+[2022-06-04][12:11:18] x265 [info]: Weighted P-Frames: Y:22.0% UV:4.4%
+[2022-06-04][12:11:18] x265 [info]: Weighted B-Frames: Y:19.0% UV:2.2%
+[2022-06-04][12:11:18] x265 [info]: consecutive B-frames: 4.4% 0.9% 1.6% 14.4% 8.3% 21.7% 10.6% 17.7% 20.4%
+[2022-06-04][12:11:18] encoded 205659 frames in 53421.58s (3.85 fps), 18464.78 kb/s, Avg QP:21.08
+[2022-06-04][12:11:19] vpyp [info]: Deprecated option --y4m specified, use -c y4m instead
+[2022-06-04][12:11:19] vpyp [info]: Output 205659 frames in 53414.14 seconds (3.85 fps)
+[2022-06-04][12:11:19] Final file size is 18.4 GB bytes.
+[2022-06-04][12:11:19] 
+[2022-06-04][12:11:19] --- COMPLETED ---
+[2022-06-04][12:11:19] 
+[2022-06-04][12:11:19] Job finished at 2022-06-04, 12:11:19. Process took 890 minutes, 29 seconds.
 ```
