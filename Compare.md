@@ -9,7 +9,7 @@ https://slow.pics/c/1xLeXz7P
 https://slow.pics/c/0RJZoJyW
 
 ## 结论
-有问题调crf就完了，psy-rd 开到2,高码下会起反作用。
+有问题调crf就完了，psy-rd 开到2,高码下会起反作用。(主要之前看人说高码要开2，如果18Mbps都不算高码的话当我没说)
 rdoq 开高也不太有必要，画面会有些浮肿
 
 ## --crf 20.0 --psy-rd 1.50 --psy-rdoq 1 16053.14 kb/s
