@@ -629,3 +629,8 @@ Matrix coefficients         : BT.709
 [2022-06-04][12:11:19] 
 [2022-06-04][12:11:19] Job finished at 2022-06-04, 12:11:19. Process took 890 minutes, 29 seconds.
 ```
+
+## 调低 psy-rd 到 0.5 的对比
+https://shoot.photo/images/2022/06/14/Pzd1s.png
+https://shoot.photo/images/2022/06/14/PzMdJ.png
+https://shoot.photo/images/2022/06/14/PznuV.png
