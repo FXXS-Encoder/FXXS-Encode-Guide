@@ -3,6 +3,7 @@ import os, sys
 import json
 import subprocess
 import random
+from pathlib import Path
 import os
 # encoding="utf-8",
 print(os.getcwd())
@@ -139,4 +140,13 @@ def main(url, times):
 
 
 if __name__ == "__main__":
-    main("\\\\192.168.70.69\\Happy.Endings.S01.2011.Bluray.1080p.MNHD-FRDS\\Happy.Endings.S01E01.Pilot.1080p.Bluray.x265.10bit.DDP.5.1.MNHD-FRDS.mkv", 6)
+    url="D:\\Seed\\印度暴徒.Thugs.of.Hindostan.2018.BluRay.REPACK3.MNHD-FRDS\\Thugs.of.Hindostan.2018.BluRay.1080p.x265.10bit.DDP7.1.REPACK3.MNHD-FRDS.mkv"
+    times = 6
+    print(sys.argv)
+    if len(sys.argv) == 2:
+        url = str(Path(sys.argv[1]))
+        print(url)
+        print(times)
+        main(url, times)
+
+
