@@ -54,38 +54,3 @@ Maximum Frame-Average Light Level : <b>1076</b> cd/m2
 In this case master-display=G(13250,34500)B(7500,3000)R(34000,16000)WP(15635,16450)**L(40000000,50)** and max-cll=**3903,1076**
 
 About Maximum Content Light Level and Maximum Frame-Average Light Level ... If those not present -> max-cll=0,0
-
-
-
-
-<textarea style="width: 80%; height: 200px" onkeyup="refresh();" placeholder="仅支持输入JSON版mediainfo" id="HDR"
-></textarea>
-
-<pre><code id="result" name="result"></code></pre>
-<script>
-  var refresh = function () {
-    document.getElementById("result").textContent = "";
-    var mediainfo = document.getElementById("HDR").value.replaceAll("\\", "|");
-    if (mediainfo) {
-      var whole = JSON.parse(mediainfo);
-      var track = whole.media.track;
-      var hevc = track.filter(function (video) {
-        return video["@type"] === "Video";
-      })[0];
-      if (hevc.MasteringDisplay_ColorPrimaries == "Display P3")
-        document.getElementById("result").textContent += '--master-display "G(13250,34500)B(7500,3000)R(34000,16000)WP(15635,16450)"';
-      else if (hevc.MasteringDisplay_ColorPrimaries == "BT.2020")
-        document.getElementById("result").textContent += '--master-display "G(8500,39850)B(6550,2300)R(35400,14600)WP(15635,16450)"';
-      var Luminance = hevc.MasteringDisplay_Luminance.replaceAll(
-        " cd/m2",
-        ""
-      ).match(/\d\.?\d*/g);
-      var max = Luminance[1] * 10000,
-        min = Luminance[0] * 10000;
-      document.getElementById("result").textContent += "L(" + max + "," + min + ")";
-      if (hevc.MaxCLL)
-        document.getElementById("result").textContent += " max-cll=" + hevc.MaxCLL.replace(" cd/m2", "") + "," + hevc.MaxFALL.replace(" cd/m2", "");
-    }
-  };
-  refresh();
-</script>
