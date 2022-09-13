@@ -18,11 +18,9 @@ core = vs.core
 def createSnap(clip, title, numbers, fix):
     clip = awf.FrameInfo(clip,title)
     for i in numbers:
-        i=i+fix;
-        snap = core.imwri.Write(clip.resize.Spline36(format=vs.RGB24, matrix_in_s="709", dither_type="error_diffusion"),"PNG", '%d-' + title + '.png', overwrite=True).get_frame(i)
+        o=i+fix;
+        snap = core.imwri.Write(clip.resize.Spline36(format=vs.RGB24, matrix_in_s="709", dither_type="error_diffusion"),"PNG", str(i)+'-' + title + '(fix'+ str(fix) +').png', overwrite=True).get_frame(o)
     return snap
-
-
 
 #载入源
 #-------------source文件-------------------------#
