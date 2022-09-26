@@ -44,26 +44,26 @@
 ## 文件名
 文件名必须将所有空格转换为"."
 
-# Movie
+## Movie
 * x265压制必须为10bit，但由于以前有一些8bit压制，目前要求写上，以后Trump完所有8bit压制后可以省略，带HDR的现可以省略10bit。
 * HDR type理论可以写在Source后的任何地方，我们组通常写在x265后方
 * 对于UHD压制，如为SDR，可以标上以作提示
-## WEB
+### WEB
 Name Year Source Resolution Rip-type Video-codec Audio-Tag (因为WEB的源码与压制难以区分，故压制统一标注为WEBRip,另WEBRip还会被录制使用)
 
 Long Shot 2019 WEB-DL 2160p H.265/HEVC/H265 HDR DDP5.1-PHOENiX
 
-0.5 mm 2014 WEBRip 1080p x265 10bit DDP5.1 MNHD-FRDS
+0.5 mm 2014 WEBRip 1080p x265 10bit DDP5.1 MNHD-tag
 
 
-## Blu-ray Encode
+### Blu-ray Encode
 Name Year Source Resolution Video-encode Audio MNHD-Tag
 
 Goodfellas 1990 BluRay 1080p x265 10bit DTS5.1-tag
 
 
-## TV Show Season/Mini-Series:
-### Episode(File Name)
+### TV Show Season/Mini-Series:
+#### Episode(File Name)
 * 尽量避免数字连写，好看一些
 * 也要避免集标题后直接接BluRay
 * 尽量保证整个剧集，命名风格统一
@@ -78,16 +78,16 @@ Agatha.Christies.Poirot.S02E01.Peril.at.End.House.1080p.BluRay.x265.10bit.DD2.0.
 Name S##E## Source Resolution Video-encode Audio-Tag
 
 Agatha.Christies.Poirot.S02E01.BluRay.1080p.x265.10bit.DD2.0.MNHD-tag
-### Season
+#### Season
 
 Name S## Source Resolution Year Video-encode Audio-Tag(由于剧集很多会跨年，故建议省略年份)
 
 The Romanoffs S01 2018 AMZN WEBRip 2160p x265 HDR DD+5.1-TrollUHD
 
-### Pack
+#### Pack
 可以尽量简写，`Video-encode`、`Audio`都可以不写
 
-## REPACK/PROPER/RERIP
+### REPACK/PROPER/RERIP
 * 不做字幕的Repack，建议提供修正后的可更改的文本类型字幕到公网即可
 * 写在MNHD/mUHD前面，未重新压制写REPACK，重压写RERIP，更换更好的源重压为PROPER
 * PROPER在注明源具体版本的情况下可以省略，但需在标题中注明
