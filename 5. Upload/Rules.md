@@ -62,8 +62,8 @@ Name Year Source Resolution Video-encode Audio MNHD-Tag
 Goodfellas 1990 BluRay 1080p x265 10bit DTS5.1-tag
 
 
-### TV Show Season/Mini-Series:
-#### Episode(File Name)
+## TV Show Season/Mini-Series:
+### Episode(File Name)
 * 尽量避免数字连写，好看一些
 * 也要避免集标题后直接接BluRay
 * 尽量保证整个剧集，命名风格统一
@@ -78,16 +78,16 @@ Agatha.Christies.Poirot.S02E01.Peril.at.End.House.1080p.BluRay.x265.10bit.DD2.0.
 Name S##E## Source Resolution Video-encode Audio-Tag
 
 Agatha.Christies.Poirot.S02E01.BluRay.1080p.x265.10bit.DD2.0.MNHD-tag
-#### Season
+### Season
 
 Name S## Source Resolution Year Video-encode Audio-Tag(由于剧集很多会跨年，故建议省略年份)
 
 The Romanoffs S01 2018 AMZN WEBRip 2160p x265 HDR DD+5.1-TrollUHD
 
-#### Pack
+### Pack
 可以尽量简写，`Video-encode`、`Audio`都可以不写
 
-### REPACK/PROPER/RERIP
+## REPACK/PROPER/RERIP
 * 不做字幕的Repack，建议提供修正后的可更改的文本类型字幕到公网即可
 * 写在MNHD/mUHD前面，未重新压制写REPACK，重压写RERIP，更换更好的源重压为PROPER
 * PROPER在注明源具体版本的情况下可以省略，但需在标题中注明
