@@ -5,7 +5,7 @@ FXXS压制教程
 
 公开教程寄望于能降低压制学习门槛，促进沟通交流。
 
-讨论群组:<https://t.me/joinchat/4-ZauaCl6YBhYjg1>
+讨论群组:<https://t.me/+V3PD9djMoUr4v38n>
 
 不受限加入，我们非常欢迎新鲜血液的加入，非组内成员也可参与询问及讨论。
 
