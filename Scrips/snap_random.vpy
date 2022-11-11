@@ -19,7 +19,7 @@ def createSnap(clip, title, numbers, fix):
     clip = awf.FrameInfo(clip,title)
     for i in numbers:
         o=i+fix;
-        snap = core.imwri.Write(clip.resize.Spline36(format=vs.RGB24, matrix_in_s="709", dither_type="error_diffusion"),"PNG", str(i)+'-' + title + '(fix'+ str(fix) +').png', overwrite=True).get_frame(o)
+        snap = core.imwri.Write(clip.resize.Spline36(format=vs.RGB24, matrix_in_s="709", dither_type="error_diffusion"),"PNG", str(i)+'-' + title + '-fix'+ str(fix) +'.png', overwrite=True).get_frame(o)
     return snap
 
 #载入源
@@ -46,7 +46,8 @@ numbers = []
 while i < 6:
     numbers.append(random.randint(600,video.num_frames))
     i+=1
-
+#manualnumbers = [1111,2222]
+#numbers = manualnumbers
 png=createSnap(video,"1.Source",numbers,0) #生成截图
 png=createSnap(encode1,"2.High",numbers,0)
 png=createSnap(encode2,"3.New Low",numbers,0)
