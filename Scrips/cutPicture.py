@@ -148,5 +148,5 @@ if __name__ == "__main__":
         print(url)
         print(times)
         main(url, times)
-
+        os.system("oxipng.exe -o 4 *.png")
 
