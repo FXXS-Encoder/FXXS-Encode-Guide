@@ -100,12 +100,14 @@ FLAGS:
 
   ```shell
   deew.exe -i '4588 PID 1100 48000 6ch eng DELAY 0ms.thd'
+  deew.exe -b 768 -i '4588 PID 1100 48000 6ch eng DELAY 0ms.thd'
   ```
 
-- 以DTS7.1为输入源 制作DDP7.1@1536kbps
+- 以DTS7.1为输入源 制作DDP7.1@1536kbps / 1024kbps
 
   ```shell
   deew.exe -i 00001.mpls_3eng.dts
+  deew.exe -b 1024 -i 00001.mpls_3eng.dts
   ```
 
 ![DEEW encoding](https://camo.githubusercontent.com/c5f401d6aec11b6f742d43f75f002ec7b44b7d010af07ce36036e835dc28f8e7/68747470733a2f2f74656c656772612e70682f66696c652f3730633830306231353362396665396138383530392e676966)
