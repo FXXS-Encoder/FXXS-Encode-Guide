@@ -37,54 +37,59 @@
 
 确认正常返回版本号即可开始制作。
 
-**参数解析**
+```
+>deew -h
+deew 2.9.5
 
-> deew 2.0
->
-> USAGE: deew.py [-h] [-v] [-i [INPUT ...]] [-o OUTPUT] [-f FORMAT] [-b BITRATE] [-dm DOWNMIX] [-d DELAY] [-drc DRC] [-dn DIALNORM] [-t THREADS]
->                [-k] [-mo] [-la] [-pl] [-cl]
+USAGE: deew [-h] [-v] [-i [INPUT ...]] [-ti INDEX] [-o DIRECTORY] [-f FORMAT]
+            [-b BITRATE] [-dm CHANNELS] [-d DELAY] [-r DRC] [-dn DIALNORM]
+            [-in INSTANCES] [-k] [-mo] [-fs] [-fb] [-lb] [-la] [-np] [-pl]
+            [-cl] [-c] [-gc]
 
-
-```ruby
-可选参数:
-  -h, --help            显示帮助信息
-  -v, --version         显示版本信息
-  -i [INPUT ...], --input [INPUT ...]
-                        输入的文件/文件夹路径
-  -o OUTPUT, --output OUTPUT
-                        输入的文件路径
-                        默认为程序所在文件夹
-  -f FORMAT, --format   输出格式
-                        dd/ddp/thd (默认为 ddp)
-  -b BITRATE, --bitrate 输出比特率
-                        默认值:
-                        DD:  1.0: 128 kbps, 2.0: 256 kbps, 5.1: 640 kbps
-                        DDP: 1.0: 128 kbps, 2.0: 256 kbps, 5.1: 1024 kbps, 7.1: 1536 kbps
-  -dm DOWNMIX, --downmix DOWNMIX 1 / 2 / 6
-						指定降低/升高声道, 仅对DDP有效
-                        DD格式无论是否7.1声道都将自动降至5.1声道
-  -d DELAY, --delay DELAY
-						指定延迟单位为ms、s或帧率
-						帧率可以是数字、除法算式或ntsc/pal
-						+/- 亦可使用 p/m 替代
-						例如：-5.1ms, +1,52s, p5s, m5@pal, +10@24000/1001
-						默认值：0ms
-  -drc DRC              动态范围控制
-                        film_light/film_standard/music_light/music_standard/speech drc profile
-                        默认值: film_light
-  -dn DIALNORM, --dialnorm DIALNORM    
-						设置-31到0之间的响度值
-                        0代表软件自动（将会使用DEE进行计算）
-                        默认值: 0
-  -t THREADS, --threads 使用的线程数
-                        仅在多任务同时编码时有效，单任务编码无法提速
-                        默认值：所有线程数-1
-  -k, --keeptemp        保留临时文件
-  -mo, --measure-only   仅使用DEE计算响度并显示于进度条上
-                        overwrites format with ddp if specified
-  -la, --long-argument  展示为每次输入的 ffmpeg 与 DEE 参数
-  -pl, --printlogos     show all logo variants you can set in the config
-  -cl, --changelog      show changelog
+FLAGS:
+  -h, --help                  show this help message.
+  -v, --version               show version.
+  -i, --input [INPUT ...]     audio file(s) or folder(s)
+  -ti, --track-index INDEX    default: 0
+                              select audio track index of input(s)
+  -o, --output DIRECTORY      default: current directory
+                              specifies output directory
+  -f, --format FORMAT         options: dd / ddp / thd
+                              default: ddp
+  -b, --bitrate BITRATE       options: run -lb/--list-bitrates
+                              default: run -c/--config
+  -dm, --downmix CHANNELS     options: 1 / 2 / 6
+                              specifies downmix, only works for DD/DDP
+                              DD will be automatically downmixed to 5.1 in case of a 7.1 source
+  -d, --delay DELAY           examples: -5.1ms, +1,52s, -24@pal, +10@24000/1001
+                              default: 0ms or parsed from filename
+                              specifies delay as ms, s or frame@FPS
+                              FPS can be a number, division or ntsc / pal
+                              you have to specify negative values as -d=-0ms
+  -r, --drc DRC               options: film_light / film_standard / music_light / music_standard / speech
+                              default: music_light (this is the closest to the missing none preset)
+                              specifies drc profile
+  -dn, --dialnorm DIALNORM    options: between -31 and 0 (in case of 0 DEE's measurement will be used)
+                              default: 0
+                              applied dialnorm value between
+  -in, --instances INSTANCES  examples: 1, 4, 50%
+                              default: 50%
+                              specifies how many encodes can run at the same time
+                              50% means 4 on a cpu with 8 threads
+                              one DEE can use 2 threads so 50% can utilize all threads
+                              (this option overrides the config's number)
+  -k, --keeptemp              keep temp files
+  -mo, --measure-only         kills DEE when the dialnorm gets written to the progress bar
+                              this option overrides format with ddp
+  -fs, --force-standard       force standard profile for 7.1 DDP encoding (384-1024 kbps)
+  -fb, --force-bluray         force bluray profile for 7.1 DDP encoding (768-1664 kbps)
+  -lb, --list-bitrates        list bitrates that DEE can do for DD and DDP encoding
+  -la, --long-argument        print ffmpeg and DEE arguments for each input
+  -np, --no-prompt            disables prompt
+  -pl, --print-logos          show all logo variants you can set in the config
+  -cl, --changelog            show changelog
+  -c, --config                show config and config location(s)
+  -gc, --generate-config      generate a new config
 ```
 
 **举例**
