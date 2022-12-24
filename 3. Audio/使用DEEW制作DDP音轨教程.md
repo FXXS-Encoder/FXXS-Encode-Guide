@@ -19,26 +19,17 @@
 
 
 ## 开始工作
-
-~~使用eac3to提取音轨(不推荐,见issue)~~
-
-~~点击**Input File**导入原盘文件，找到原盘中需要提取多声道的音轨序号，例如图中为序号3的TrueHD 5.1声道的音轨，**输出为thd**，**Add**并**Run CL**，等待输出。~~
-
-由于每个盘其音轨制作方式不同，格式也有所不同，请选择**输出时不要转换格式，即输出源格式。** 例如源为DTS，那么输出时也选择该格式。
-
-### 使用DGDemux提取音轨
+使用DGDemux提取音轨
 
 点击**Browse**导入原盘文件，找到原盘中需要提取多声道的音轨序号，例如图中为序号3的TrueHD 5.1声道的音轨，勾选后点击**Demux**。
 
-![DGDemux](/Picture/DDP-pics/deew-1dgdemux.png)
 
-~~若原盘音轨格式为THD，请勾选右侧 ***Do not split THD***，本流程无需其ac3兼容内核。~~（新版本已取消该选项）
 
-### (可选)直接将带有音频的视频输入
+或直接将带有音频的视频输入
 
 适合于Remux文件，无需任何提取，直接将`REMUX.mkv`作为输入源，默认将第一个音轨进行转换。
 
-### Dolby Encoding Engine Wrapper使用
+## Dolby Encoding Engine Wrapper使用
 
 按住`Shift`键并右键空白区域，选择 **在 Windows终端 中打开** / **在此处打开 Powershell 窗口**，输入
 
