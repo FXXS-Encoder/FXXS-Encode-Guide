@@ -1,5 +1,5 @@
 # psy-rd & psy-rdoq 
-第一次的对比图，当时发现 psy-rdoq 的提高会大幅度增加码率，pey-rd调高起了反效果，故淘汰
+第一次的对比图，当时发现 psy-rdoq 的提高会大幅度增加码率，psy-rd调高起了反效果，故淘汰
 https://slow.pics/c/mW5NI4v1
 
 加了一组psy-rd 1.5 psy-rdoq 5 的 然后发现画面反而好了些
