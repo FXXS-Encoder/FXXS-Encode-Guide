@@ -4,6 +4,7 @@ import json
 import subprocess
 import random
 from pathlib import Path
+import platform
 import os
 # encoding="utf-8",
 print(os.getcwd())
@@ -14,12 +15,14 @@ VIDEO_DIR = os.getcwd() +"/../video"
 BIN_DIR = os.getcwd() +"/../bin"
 
 BIN_SHELL_DIR = {
-    "ffmpeg": "ffmpeg.exe",
-    "ffprobe": "ffprobe.exe"
+    "ffmpeg": "ffmpeg",
+    "ffprobe": "ffprobe"
 }
 
 def pathApply(value):
-    value = value.replace("/", "\\")
+    print(platform.platform())
+    if "windows" in platform.platform():
+        value = value.replace("/", "\\")
     return value
     
 
@@ -92,7 +95,7 @@ def cutPicture(url, isHdr, time, width, height, filename, index):
     # print(shell)
     os.system(shell)
     print("第%d个截图生成结束" % (index + 1))
-
+    
 # 获取视频信息
 def getMediaInfo(url):
     print("开始获取信息:")
@@ -105,7 +108,10 @@ def getMediaInfo(url):
 
 # 获取文件名
 def getFileName(mediaInfo):
-    filename = mediaInfo["format"]["filename"].split("\\")[-1]
+    if "windows" in platform.platform():
+        filename = mediaInfo["format"]["filename"].split("\\")[-1]
+    else:
+        filename = mediaInfo["format"]["filename"].split("/")[-1]
     lastlen = len(filename.split(".")[-1]) + 1
     filename = filename[0:len(filename) - lastlen]
     return filename
@@ -140,7 +146,7 @@ def main(url, times):
 
 
 if __name__ == "__main__":
-    url="D:\\Seed\\印度暴徒.Thugs.of.Hindostan.2018.BluRay.REPACK3.MNHD-FRDS\\Thugs.of.Hindostan.2018.BluRay.1080p.x265.10bit.DDP7.1.REPACK3.MNHD-FRDS.mkv"
+    url="" #可以手动写路径
     times = 6
     print(sys.argv)
     if len(sys.argv) == 2:
@@ -148,5 +154,7 @@ if __name__ == "__main__":
         print(url)
         print(times)
         main(url, times)
-        os.system("oxipng.exe -o 4 *.png")
+        os.system("oxipng -o 4 *.png")
+        
+
 
