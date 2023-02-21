@@ -4,7 +4,7 @@
 
 越来越多新人加入了压制行列，但新人上手对教程不理解，不熟悉流程，容易踩到许多坑；且大佬们不是24小时在线，新人可能遇到的坑是前人踩过，反复回复相同问题增加了大佬的负担。故写下此~~指南~~流程（想了很久还是流程比较贴切），进一步降低教程门槛，使新人更易~~做鸭~~上手。
 
-**必须阅读一遍[官方教程](https://github.com/ted423/FXXS-Encode-Guide/blob/main/%E5%8E%8B%E5%88%B6%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.md)了解原理，再阅读本流程，可能对整个压制流程能有一个大致的认识，帮助新人压出第一部作品。**
+**必须阅读一遍 [官方教程](https://github.com/ted423/FXXS-Encode-Guide/blob/main/%E5%8E%8B%E5%88%B6%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.md) 还有[基础知识](https://github.com/ted423/FXXS-Encode-Guide/tree/main/1.%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86) 了解原理，再阅读本流程，可能对整个压制流程能有一个大致的认识，帮助新人压出第一部作品。**
 
 本文因编者水平有限，仅作为新人上手指导，其中不乏有疏漏，还望各位大佬指正，若有本文中没有提到的情况或其他不解之处，欢迎加群咨询大佬，在此对大佬的无私指导和指正**表示感谢！**
 
@@ -20,7 +20,7 @@
 
 本文主要讲解```Windows10/11 x64```下压制环境的配置与使用，其他环境的用户可以选择性阅读。
 
-```Linux```环境在此推荐[HLW组御用Docker](https://github.com/gzycode39/docker-vapoursynth-yuuno/)；```MacOS```环境中Intel架构的环境配置推荐[这篇文章](https://forum.doom9.org/showthread.php?p=1907899)，Arm架构(M1 Series)因架构因素依赖环境及插件均无法配置。
+```Linux```环境需要一定的程序员基础，参考这里[Linux工具](https://github.com/ted423/FXXS-Encode-Guide/blob/main/2.%20Tools/Linux.md)；```MacOS```环境中Intel架构的环境配置推荐[这篇文章](https://forum.doom9.org/showthread.php?p=1907899)，Arm架构(M1 Series)因架构因素依赖环境及插件均无法配置。
 
 ### 环境配置
 
