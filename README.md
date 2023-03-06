@@ -51,6 +51,6 @@ AHD(英文)
 
 iAvoe
 
-这个的教程跟我们的有一些出入，可能跟侧重点有关
+这个的教程跟我们的有一些出入，可能跟侧重点有关，建议在压过一些片，有一定的基础之后再看
 
-<https://github.com/iAvoe/x264-x265-QAAC-ffprobe-Ultimatetutorial>
+~~https://github.com/iAvoe/x264-x265-QAAC-ffprobe-Ultimatetutorial~~
