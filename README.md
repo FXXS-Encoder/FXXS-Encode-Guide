@@ -48,6 +48,13 @@ AHD(英文)
 
 <https://silentaperture.gitlab.io/mdbook-guide/introduction.html>
 
+[Irrational-Encoding-Wizardry](https://github.com/Irrational-Encoding-Wizardry/)
+
+<https://guide.encode.moe/index.html>
+
+他们还有Discord(英文) discord.gg/qxTxVJGtst
+
+目前他们的一些脚本没有文档，目测要去Discord里面搜
 
 iAvoe
 
