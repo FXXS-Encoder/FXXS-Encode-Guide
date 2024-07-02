@@ -24,6 +24,8 @@
 | [VS Official Web](https://www.vapoursynth.com/) \ [VS Github](https://github.com/vapoursynth/vapoursynth)|VS|[Doc](http://www.vapoursynth.com/doc/index.html)|
 | [VapourSynth Editor Modified by YomikoR](https://github.com/YomikoR/VapourSynth-Editor)|原版长期未更新，并且存在一些不足,故只放mod版| |
 | [VapourSynth Editor 2](https://bitbucket.org/gundamftw/vapoursynth-editor-2)|Untest|||
+| [vapoursynth-classic](https://github.com/AmusementClub/vapoursynth-classic)|Untest，旨在维护旧版API的一个版本|||
+| [tool-pack](https://github.com/AmusementClub/tools)|Untest，类似Mediatool的一个项目，不过我一直好奇里面打包了GPL的东西能不能这么发布|||
 
 ### Other Tool
 | Name | Description | Document | etc 
