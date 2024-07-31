@@ -28,3 +28,5 @@
 `ffmpeg -i 1.dts -c:a flac -compression_level 8 1.flac`
 
 `ffmpeg -i 1.mkv -map 0:1  -c:a flac -compression_level 8 chi.flac`
+
+`ffmpeg  -v quiet -ss 00:23:00 -i file  -vcodec png -vframes 1 -pix_fmt rgb24 -y ~/filename.png`
